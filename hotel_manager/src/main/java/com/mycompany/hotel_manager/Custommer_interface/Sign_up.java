@@ -48,6 +48,7 @@ public class Sign_up extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sign up");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Menu_SignUp.setBackground(new java.awt.Color(255, 255, 255));
@@ -166,7 +167,7 @@ public class Sign_up extends javax.swing.JFrame {
         getContentPane().add(Menu_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 290, 360));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hotel_manager/image/back_groud.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 480));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,8 +203,8 @@ public class Sign_up extends javax.swing.JFrame {
 
                 // Đóng cửa sổ đăng ký và thông báo đăng ký thành công
                 setVisible(false);
-                successful RS = new successful();
-                RS.setVisible(true);
+                Custommer_information CI = new Custommer_information();
+                CI.setVisible(true);
             }
         }
     }//GEN-LAST:event_buttonCompleteSignUpCustommerActionPerformed
