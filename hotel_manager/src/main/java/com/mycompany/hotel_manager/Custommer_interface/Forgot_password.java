@@ -52,6 +52,7 @@ public class Forgot_password extends javax.swing.JFrame {
         backGroud = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Forgot password");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Menu_forgotPassword.setBackground(new java.awt.Color(255, 255, 255));
