@@ -4,6 +4,10 @@
  */
 package com.mycompany.hotel_manager.Custommer_interface;
 
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.Invalid_username;
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.Password_dont_match;
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.successful;
+
 /**
  *
  * @author Administrator
@@ -15,6 +19,9 @@ public class Sign_up extends javax.swing.JFrame {
      */
     public Sign_up() {
         initComponents();
+        txtToSignUpUsernameCustommer.setText("");
+        txtToSignUpPasswordCustommer.setText("");
+        txtConfirmPasswordCustommer.setText("");
     }
 
     /**
@@ -37,6 +44,7 @@ public class Sign_up extends javax.swing.JFrame {
         buttonCompleteSignUpCustommer = new javax.swing.JButton();
         txtConfirmPasswordCustommer = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
+        buttonBackToLogInCustommer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,24 +84,35 @@ public class Sign_up extends javax.swing.JFrame {
 
         jLabel7.setText("Confirm password");
 
+        buttonBackToLogInCustommer.setBackground(new java.awt.Color(51, 204, 255));
+        buttonBackToLogInCustommer.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        buttonBackToLogInCustommer.setForeground(new java.awt.Color(255, 255, 255));
+        buttonBackToLogInCustommer.setText("Back");
+        buttonBackToLogInCustommer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackToLogInCustommerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Menu_SignUpLayout = new javax.swing.GroupLayout(Menu_SignUp);
         Menu_SignUp.setLayout(Menu_SignUpLayout);
         Menu_SignUpLayout.setHorizontalGroup(
             Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_SignUpLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(buttonCompleteSignUpCustommer, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_SignUpLayout.createSequentialGroup()
                 .addContainerGap(48, Short.MAX_VALUE)
-                .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_SignUpLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(44, 44, 44))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_SignUpLayout.createSequentialGroup()
-                        .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtConfirmPasswordCustommer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                        .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Menu_SignUpLayout.createSequentialGroup()
+                                .addComponent(buttonBackToLogInCustommer)
+                                .addGap(27, 27, 27)
+                                .addComponent(buttonCompleteSignUpCustommer, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtConfirmPasswordCustommer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)))
                         .addGap(36, 36, 36))))
             .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Menu_SignUpLayout.createSequentialGroup()
@@ -122,9 +141,11 @@ public class Sign_up extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtConfirmPasswordCustommer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(buttonCompleteSignUpCustommer)
-                .addGap(31, 31, 31))
+                .addGap(47, 47, 47)
+                .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCompleteSignUpCustommer)
+                    .addComponent(buttonBackToLogInCustommer))
+                .addGap(30, 30, 30))
             .addGroup(Menu_SignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Menu_SignUpLayout.createSequentialGroup()
                     .addGap(90, 90, 90)
@@ -161,25 +182,38 @@ public class Sign_up extends javax.swing.JFrame {
         String password = txtToSignUpPasswordCustommer.getText();
         String confirmPassword = txtConfirmPasswordCustommer.getText();
         
-        // Kiểm tra Username đã tồn tại hay chưa
+        // Kiểm tra Username đã tồn tại hoặc tỗng không
         
-        if(!password.equals(confirmPassword)){ // Kiểm tra mật khẩu đã trùng khớp chưa
-            txtToSignUpPasswordCustommer.setText("");
-            txtConfirmPasswordCustommer.setText("");
-            Password_dont_match pdm = new Password_dont_match();
-            pdm.setVisible(true);
+        if(username.equals("")){
+            Invalid_username iu = new Invalid_username();
+            iu.setVisible(true);
         }else{
-            // Nhập tài khoản vào cơ sở dữ liệu
             
-            
-            
-            // Đóng cửa sổ đăng ký và thông báo đăng ký thành công
-            setVisible(false);
-            successful RS = new successful();
-            RS.setVisible(true);
+        // Kiểm tra mật khẩu đã trùng khớp hoặc rỗng ko
+            if(!password.equals(confirmPassword) || password.equals("") || confirmPassword.equals("") ){ 
+                txtToSignUpPasswordCustommer.setText("");
+                txtConfirmPasswordCustommer.setText("");
+                Password_dont_match pdm = new Password_dont_match();
+                pdm.setVisible(true);
+            }else{
+                // Nhập tài khoản vào cơ sở dữ liệu
+
+
+
+                // Đóng cửa sổ đăng ký và thông báo đăng ký thành công
+                setVisible(false);
+                successful RS = new successful();
+                RS.setVisible(true);
+            }
         }
-        
     }//GEN-LAST:event_buttonCompleteSignUpCustommerActionPerformed
+
+    private void buttonBackToLogInCustommerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToLogInCustommerActionPerformed
+        // đóng cửa sổ đăng ký để về đăng nhập
+        setVisible(false);
+        Log_in login = new Log_in();
+        login.setVisible(true);
+    }//GEN-LAST:event_buttonBackToLogInCustommerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +252,7 @@ public class Sign_up extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu_SignUp;
+    private javax.swing.JButton buttonBackToLogInCustommer;
     private javax.swing.JButton buttonCompleteSignUpCustommer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
