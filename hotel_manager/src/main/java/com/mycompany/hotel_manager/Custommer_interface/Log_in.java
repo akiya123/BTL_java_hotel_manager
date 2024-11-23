@@ -61,6 +61,7 @@ public class Log_in extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("log in");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -81,6 +82,11 @@ public class Log_in extends javax.swing.JFrame {
         buttonToLogInCustommer.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         buttonToLogInCustommer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hotel_manager/image/icon_login.png"))); // NOI18N
         buttonToLogInCustommer.setText("log in");
+        buttonToLogInCustommer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonToLogInCustommerActionPerformed(evt);
+            }
+        });
 
         buttonToForgotPassword.setBackground(new java.awt.Color(204, 204, 204));
         buttonToForgotPassword.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -192,6 +198,14 @@ public class Log_in extends javax.swing.JFrame {
             Forgot_password forgot = new Forgot_password();
             forgot.setVisible(true);
     }//GEN-LAST:event_buttonToForgotPasswordActionPerformed
+
+    private void buttonToLogInCustommerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonToLogInCustommerActionPerformed
+        // TODO add your handling code here:
+        //Nếu Thỏa mãn điều kiện để đăng nhập
+        setVisible(false);
+        Custommer_menu cm = new Custommer_menu();
+        cm.setVisible(true);
+    }//GEN-LAST:event_buttonToLogInCustommerActionPerformed
 
     /**
      * @param args the command line arguments
