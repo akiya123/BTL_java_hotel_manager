@@ -11,5 +11,6 @@ package com.mycompany.hotel_manager;
 public class Hotel_manager {
 
     public static void main(String[] args) {
+        System.out.println("Hello World!");
     }
 }
