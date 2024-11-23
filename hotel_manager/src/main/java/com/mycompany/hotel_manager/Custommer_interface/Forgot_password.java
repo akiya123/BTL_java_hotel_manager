@@ -4,6 +4,10 @@
  */
 package com.mycompany.hotel_manager.Custommer_interface;
 
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.Invalid_username;
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.Password_dont_match;
+import com.mycompany.hotel_manager.Custommer_interface.Report_Invalid_Case.successful;
+
 /**
  *
  * @author Administrator
@@ -44,6 +48,7 @@ public class Forgot_password extends javax.swing.JFrame {
         changePassword_dont_use_this = new javax.swing.JLabel();
         iconChangePassword_dont_use_this = new javax.swing.JLabel();
         buttonFindUsernameCustommer = new javax.swing.JButton();
+        buttonBackToLogInCustommer = new javax.swing.JButton();
         backGroud = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,7 +97,7 @@ public class Forgot_password extends javax.swing.JFrame {
                 buttonChangePasswordCustommerActionPerformed(evt);
             }
         });
-        Menu_forgotPassword.add(buttonChangePasswordCustommer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        Menu_forgotPassword.add(buttonChangePasswordCustommer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         Username_dont_use_this.setText("Username");
         Menu_forgotPassword.add(Username_dont_use_this, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
@@ -123,7 +128,18 @@ public class Forgot_password extends javax.swing.JFrame {
                 buttonFindUsernameCustommerActionPerformed(evt);
             }
         });
-        Menu_forgotPassword.add(buttonFindUsernameCustommer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+        Menu_forgotPassword.add(buttonFindUsernameCustommer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+
+        buttonBackToLogInCustommer.setBackground(new java.awt.Color(51, 204, 255));
+        buttonBackToLogInCustommer.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        buttonBackToLogInCustommer.setForeground(new java.awt.Color(255, 255, 255));
+        buttonBackToLogInCustommer.setText("Back");
+        buttonBackToLogInCustommer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackToLogInCustommerActionPerformed(evt);
+            }
+        });
+        Menu_forgotPassword.add(buttonBackToLogInCustommer, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
         getContentPane().add(Menu_forgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 290, 360));
 
@@ -142,10 +158,14 @@ public class Forgot_password extends javax.swing.JFrame {
         
         // Lấy thông tin Username
         String username = txtFindUsernameCustommer.getText();
+
+  
         
-        //So sách với cơ sở dữ liệu
-        
-        
+        //So sách với cơ sở dữ liệu xem có Username tương ứng k và xem usnername có rỗng không
+        if(username.equals("")){
+            Invalid_username iu = new Invalid_username();
+            iu.setVisible(true);
+        }else{
         // nếu username có trong cơ sở dữ liệu hiện bộ đổi mật khẩu và ẩn bộ tìm username
         buttonChangePasswordCustommer.setVisible(true);
         txtChangePasswordCustommer.setVisible(true);
@@ -158,6 +178,8 @@ public class Forgot_password extends javax.swing.JFrame {
         iconUsername_dont_use_this.setVisible(false);
         Username_dont_use_this.setVisible(false);
         buttonFindUsernameCustommer.setVisible(false);
+        }
+        
         
     }//GEN-LAST:event_buttonFindUsernameCustommerActionPerformed
 
@@ -170,9 +192,9 @@ public class Forgot_password extends javax.swing.JFrame {
         String password = txtChangePasswordCustommer.getText();
         String confirmPassword = txtConfirmChangePasswordCustommer.getText();
         
-        // Kiểm tra Username đã tồn tại hay chưa
-        
-        if(!password.equals(confirmPassword)){ // Kiểm tra mật khẩu đã trùng khớp chưa
+       
+        // Kiểm tra mật khẩu đã trùng khớp hoặc rông không
+        if(!password.equals(confirmPassword) || password.equals("") || confirmPassword.equals("")){ 
             txtChangePasswordCustommer.setText("");
             txtConfirmChangePasswordCustommer.setText("");
             Password_dont_match pdm = new Password_dont_match();
@@ -182,12 +204,19 @@ public class Forgot_password extends javax.swing.JFrame {
             
             
             
-            // Đóng cửa Forgot_password và thông báo thành công
+            // Đóng cửa quên mk và thông báo thành công
             setVisible(false);
             successful RS = new successful();
             RS.setVisible(true);
         }
     }//GEN-LAST:event_buttonChangePasswordCustommerActionPerformed
+
+    private void buttonBackToLogInCustommerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToLogInCustommerActionPerformed
+        // đóng cửa sổ Quên mk để về đăng nhập
+        setVisible(false);
+        Log_in login = new Log_in();
+        login.setVisible(true);
+    }//GEN-LAST:event_buttonBackToLogInCustommerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +257,7 @@ public class Forgot_password extends javax.swing.JFrame {
     private javax.swing.JPanel Menu_forgotPassword;
     private javax.swing.JLabel Username_dont_use_this;
     private javax.swing.JLabel backGroud;
+    private javax.swing.JButton buttonBackToLogInCustommer;
     private javax.swing.JButton buttonChangePasswordCustommer;
     private javax.swing.JButton buttonFindUsernameCustommer;
     private javax.swing.JLabel changePassword_dont_use_this;
