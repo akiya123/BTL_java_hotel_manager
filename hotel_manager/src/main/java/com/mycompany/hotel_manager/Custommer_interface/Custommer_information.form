@@ -49,14 +49,14 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="txtFillCustommerAge" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="txtFillAgeCustommer" min="-2" pref="90" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="txtFillCustommerPhone" min="-2" pref="273" max="-2" attributes="0"/>
+                              <Component id="txtFillPhoneCustommer" min="-2" pref="273" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -67,7 +67,7 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtFillCustommerName" min="-2" pref="273" max="-2" attributes="0"/>
+                                  <Component id="txtFillNameCustommer" min="-2" pref="273" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -89,17 +89,17 @@
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFillCustommerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFillNameCustommer" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFillCustommerPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFillPhoneCustommer" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFillCustommerAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFillAgeCustommer" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
                   <Component id="buttonDone" min="-2" max="-2" attributes="0"/>
@@ -125,14 +125,14 @@
             <Property name="text" type="java.lang.String" value="name: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFillCustommerName">
+        <Component class="javax.swing.JTextField" name="txtFillNameCustommer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFillCustommerPhone">
+        <Component class="javax.swing.JTextField" name="txtFillPhoneCustommer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -147,7 +147,7 @@
             <Property name="text" type="java.lang.String" value="Phone:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFillCustommerAge">
+        <Component class="javax.swing.JTextField" name="txtFillAgeCustommer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
