@@ -91,15 +91,15 @@
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="checkBoxVIPRoomType" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkBoxVIPRoomTypeBooking" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="checkBoxNormalRoomType" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkBoxNormalRoomTypeBooking" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="checkBoxFreeRoom" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkBoxFreeRoomBooking" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="checkBoxBookedRoom" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkBoxBookedRoomBooking" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -113,11 +113,11 @@
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxFreeRoom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxBookedRoom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxVIPRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkBoxFreeRoomBooking" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkBoxBookedRoomBooking" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkBoxVIPRoomTypeBooking" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxNormalRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkBoxNormalRoomTypeBooking" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="40" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="346" max="-2" attributes="0"/>
@@ -153,15 +153,15 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtRoomName" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                                                  <Component id="txtRoomType" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                                                  <Component id="txtRoomNameBooking" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                                                  <Component id="txtRoomTypeBooking" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                               <Component id="jLabel4" min="-2" pref="43" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtRoomPrice" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <Component id="txtRoomPriceBooking" min="-2" pref="190" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -181,17 +181,17 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtRoomName" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="txtRoomNameBooking" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtRoomType" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="txtRoomTypeBooking" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtRoomPrice" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="txtRoomPriceBooking" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -202,7 +202,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="txtRoomName">
+                    <Component class="javax.swing.JTextField" name="txtRoomNameBooking">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -232,7 +232,7 @@
                         <Property name="text" type="java.lang.String" value="Name:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtRoomType">
+                    <Component class="javax.swing.JTextField" name="txtRoomTypeBooking">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -248,7 +248,7 @@
                         <Property name="text" type="java.lang.String" value="Type:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtRoomPrice">
+                    <Component class="javax.swing.JTextField" name="txtRoomPriceBooking">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -336,7 +336,7 @@
                     <Property name="text" type="java.lang.String" value="Room&apos;s type:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="checkBoxVIPRoomType">
+                <Component class="javax.swing.JCheckBox" name="checkBoxVIPRoomTypeBooking">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -344,7 +344,7 @@
                     <Property name="text" type="java.lang.String" value="VIP"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="checkBoxNormalRoomType">
+                <Component class="javax.swing.JCheckBox" name="checkBoxNormalRoomTypeBooking">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -352,7 +352,7 @@
                     <Property name="text" type="java.lang.String" value="Normal"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxNormalRoomTypeActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxNormalRoomTypeBookingActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
@@ -363,7 +363,7 @@
                     <Property name="text" type="java.lang.String" value="Room&apos;s stastus:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="checkBoxFreeRoom">
+                <Component class="javax.swing.JCheckBox" name="checkBoxFreeRoomBooking">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -371,7 +371,7 @@
                     <Property name="text" type="java.lang.String" value="Free"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="checkBoxBookedRoom">
+                <Component class="javax.swing.JCheckBox" name="checkBoxBookedRoomBooking">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -400,8 +400,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel7" min="-2" pref="275" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="581" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane3" min="-2" pref="581" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="checkBoxVIPRoomTypeBooked" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="checkBoxNormalRoomTypeBooked" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -411,6 +423,12 @@
                       <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="checkBoxVIPRoomTypeBooked" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkBoxNormalRoomTypeBooked" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="346" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
@@ -604,6 +622,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Room&apos;s type:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="checkBoxVIPRoomTypeBooked">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="VIP"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="checkBoxNormalRoomTypeBooked">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Normal"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxNormalRoomTypeBookedActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel5">
