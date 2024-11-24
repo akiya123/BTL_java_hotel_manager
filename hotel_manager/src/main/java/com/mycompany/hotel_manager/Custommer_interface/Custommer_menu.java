@@ -15,6 +15,7 @@ public class Custommer_menu extends javax.swing.JFrame {
      */
     public Custommer_menu() {
         initComponents();
+        buttonRoomCancel.setVisible(false);
     }
 
     /**
@@ -39,7 +40,13 @@ public class Custommer_menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         buttonRoomBoking = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableRoom = new javax.swing.JTable();
+        tableRoomBooking = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        checkBoxVIPRoomType = new javax.swing.JCheckBox();
+        checkBoxNormalRoomType = new javax.swing.JCheckBox();
+        jLabel13 = new javax.swing.JLabel();
+        checkBoxFreeRoom = new javax.swing.JCheckBox();
+        checkBoxBookedRoom = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         txtRoomNameBooked = new javax.swing.JTextField();
@@ -49,10 +56,8 @@ public class Custommer_menu extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtRoomPriceBooked = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        buttonRoomCheckIn = new javax.swing.JButton();
         buttonRoomCancel = new javax.swing.JButton();
-        buttonRoomCheckOut = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         tableRoomBooked = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,7 +73,9 @@ public class Custommer_menu extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(900, 450));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(900, 465));
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(900, 465));
 
         jPanel6.setBackground(new java.awt.Color(0, 255, 255));
         jPanel6.setForeground(new java.awt.Color(0, 204, 255));
@@ -125,7 +132,7 @@ public class Custommer_menu extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(buttonRoomBoking)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,10 +153,10 @@ public class Custommer_menu extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonRoomBoking)
-                .addGap(49, 49, 49))
+                .addGap(93, 93, 93))
         );
 
-        tableRoom.setModel(new javax.swing.table.DefaultTableModel(
+        tableRoomBooking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -160,11 +167,34 @@ public class Custommer_menu extends javax.swing.JFrame {
                 "STT", "Room's name", "Type", "Stastus", "Price"
             }
         ));
-        jScrollPane1.setViewportView(tableRoom);
-        if (tableRoom.getColumnModel().getColumnCount() > 0) {
-            tableRoom.getColumnModel().getColumn(0).setMinWidth(30);
-            tableRoom.getColumnModel().getColumn(0).setMaxWidth(20);
+        jScrollPane1.setViewportView(tableRoomBooking);
+        if (tableRoomBooking.getColumnModel().getColumnCount() > 0) {
+            tableRoomBooking.getColumnModel().getColumn(0).setMinWidth(30);
+            tableRoomBooking.getColumnModel().getColumn(0).setMaxWidth(20);
         }
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Room's type:");
+
+        checkBoxVIPRoomType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxVIPRoomType.setText("VIP");
+
+        checkBoxNormalRoomType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxNormalRoomType.setText("Normal");
+        checkBoxNormalRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxNormalRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setText("Room's stastus:");
+
+        checkBoxFreeRoom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxFreeRoom.setText("Free");
+
+        checkBoxBookedRoom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxBookedRoom.setText("Booked");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,115 +202,85 @@ public class Custommer_menu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxVIPRoomType)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBoxNormalRoomType)
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkBoxFreeRoom)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkBoxBookedRoom)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(checkBoxFreeRoom)
+                    .addComponent(checkBoxBookedRoom)
+                    .addComponent(checkBoxVIPRoomType)
+                    .addComponent(jLabel12)
+                    .addComponent(checkBoxNormalRoomType))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(14, 14, 14))
         );
 
         jTabbedPane1.addTab("Booking", jPanel2);
 
+        jPanel3.setPreferredSize(new java.awt.Dimension(900, 500));
+
         jPanel7.setBackground(new java.awt.Color(0, 255, 255));
         jPanel7.setForeground(new java.awt.Color(0, 204, 255));
+        jPanel7.setMinimumSize(new java.awt.Dimension(281, 375));
+        jPanel7.setPreferredSize(new java.awt.Dimension(275, 465));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtRoomNameBooked.setEditable(false);
         txtRoomNameBooked.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(txtRoomNameBooked, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 97, 190, 34));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Rage Italic", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Room");
+        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 6, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel7.setText("Name:");
+        jPanel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 96, 49, 34));
 
         txtRoomTypeBooked.setEditable(false);
         txtRoomTypeBooked.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(txtRoomTypeBooked, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 144, 190, 34));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel8.setText("Type:");
+        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 143, 43, 34));
 
         txtRoomPriceBooked.setEditable(false);
         txtRoomPriceBooked.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(txtRoomPriceBooked, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 206, 190, 34));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel9.setText("Price:");
-
-        buttonRoomCheckIn.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
-        buttonRoomCheckIn.setText("Check in ");
+        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 205, 43, 34));
 
         buttonRoomCancel.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
         buttonRoomCancel.setText("Cancel");
-
-        buttonRoomCheckOut.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
-        buttonRoomCheckOut.setText("Check out");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(txtRoomNameBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtRoomTypeBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtRoomPriceBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonRoomCheckIn)
-                            .addGap(18, 18, 18)
-                            .addComponent(buttonRoomCheckOut)))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(buttonRoomCancel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomNameBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomTypeBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomPriceBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonRoomCheckIn)
-                    .addComponent(buttonRoomCheckOut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonRoomCancel)
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
+        jPanel7.add(buttonRoomCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
 
         tableRoomBooked.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,7 +293,7 @@ public class Custommer_menu extends javax.swing.JFrame {
                 "STT", "Room's name", "Type", "Stastus", "Price"
             }
         ));
-        jScrollPane2.setViewportView(tableRoomBooked);
+        jScrollPane3.setViewportView(tableRoomBooked);
         if (tableRoomBooked.getColumnModel().getColumnCount() > 0) {
             tableRoomBooked.getColumnModel().getColumn(0).setMinWidth(30);
             tableRoomBooked.getColumnModel().getColumn(0).setMaxWidth(20);
@@ -304,23 +304,23 @@ public class Custommer_menu extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jTabbedPane1.addTab("Room booked", jPanel3);
 
-        jPanel5.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -403,11 +403,11 @@ public class Custommer_menu extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -430,6 +430,10 @@ public class Custommer_menu extends javax.swing.JFrame {
         Log_in login = new Log_in();
         login.setVisible(true);
     }//GEN-LAST:event_buttonLogOutActionPerformed
+
+    private void checkBoxNormalRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNormalRoomTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxNormalRoomTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -470,11 +474,15 @@ public class Custommer_menu extends javax.swing.JFrame {
     private javax.swing.JButton buttonLogOut;
     private javax.swing.JButton buttonRoomBoking;
     private javax.swing.JButton buttonRoomCancel;
-    private javax.swing.JButton buttonRoomCheckIn;
-    private javax.swing.JButton buttonRoomCheckOut;
+    private javax.swing.JCheckBox checkBoxBookedRoom;
+    private javax.swing.JCheckBox checkBoxFreeRoom;
+    private javax.swing.JCheckBox checkBoxNormalRoomType;
+    private javax.swing.JCheckBox checkBoxVIPRoomType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -490,10 +498,10 @@ public class Custommer_menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable tableRoom;
     private javax.swing.JTable tableRoomBooked;
+    private javax.swing.JTable tableRoomBooking;
     private javax.swing.JTextField txtAgeOfUser;
     private javax.swing.JTextField txtNameOfUser;
     private javax.swing.JTextField txtPhoneOfUser;
