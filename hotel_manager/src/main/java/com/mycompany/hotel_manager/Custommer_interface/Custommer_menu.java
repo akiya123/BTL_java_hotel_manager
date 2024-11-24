@@ -31,22 +31,22 @@ public class Custommer_menu extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        txtRoomName = new javax.swing.JTextField();
+        txtRoomNameBooking = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtRoomType = new javax.swing.JTextField();
+        txtRoomTypeBooking = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtRoomPrice = new javax.swing.JTextField();
+        txtRoomPriceBooking = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         buttonRoomBoking = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRoomBooking = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        checkBoxVIPRoomType = new javax.swing.JCheckBox();
-        checkBoxNormalRoomType = new javax.swing.JCheckBox();
+        checkBoxVIPRoomTypeBooking = new javax.swing.JCheckBox();
+        checkBoxNormalRoomTypeBooking = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
-        checkBoxFreeRoom = new javax.swing.JCheckBox();
-        checkBoxBookedRoom = new javax.swing.JCheckBox();
+        checkBoxFreeRoomBooking = new javax.swing.JCheckBox();
+        checkBoxBookedRoomBooking = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         txtRoomNameBooked = new javax.swing.JTextField();
@@ -59,6 +59,9 @@ public class Custommer_menu extends javax.swing.JFrame {
         buttonRoomCancel = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableRoomBooked = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        checkBoxVIPRoomTypeBooked = new javax.swing.JCheckBox();
+        checkBoxNormalRoomTypeBooked = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtNameOfUser = new javax.swing.JTextField();
@@ -80,8 +83,8 @@ public class Custommer_menu extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(0, 255, 255));
         jPanel6.setForeground(new java.awt.Color(0, 204, 255));
 
-        txtRoomName.setEditable(false);
-        txtRoomName.setBackground(new java.awt.Color(255, 255, 255));
+        txtRoomNameBooking.setEditable(false);
+        txtRoomNameBooking.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Rage Italic", 1, 48)); // NOI18N
@@ -91,14 +94,14 @@ public class Custommer_menu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel2.setText("Name:");
 
-        txtRoomType.setEditable(false);
-        txtRoomType.setBackground(new java.awt.Color(255, 255, 255));
+        txtRoomTypeBooking.setEditable(false);
+        txtRoomTypeBooking.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel3.setText("Type:");
 
-        txtRoomPrice.setEditable(false);
-        txtRoomPrice.setBackground(new java.awt.Color(255, 255, 255));
+        txtRoomPriceBooking.setEditable(false);
+        txtRoomPriceBooking.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel4.setText("Price:");
@@ -122,13 +125,13 @@ public class Custommer_menu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(txtRoomName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtRoomNameBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRoomTypeBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtRoomPriceBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(buttonRoomBoking)))
@@ -141,15 +144,15 @@ public class Custommer_menu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRoomNameBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRoomTypeBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRoomPriceBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonRoomBoking)
@@ -176,25 +179,25 @@ public class Custommer_menu extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Room's type:");
 
-        checkBoxVIPRoomType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        checkBoxVIPRoomType.setText("VIP");
+        checkBoxVIPRoomTypeBooking.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxVIPRoomTypeBooking.setText("VIP");
 
-        checkBoxNormalRoomType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        checkBoxNormalRoomType.setText("Normal");
-        checkBoxNormalRoomType.addActionListener(new java.awt.event.ActionListener() {
+        checkBoxNormalRoomTypeBooking.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxNormalRoomTypeBooking.setText("Normal");
+        checkBoxNormalRoomTypeBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoxNormalRoomTypeActionPerformed(evt);
+                checkBoxNormalRoomTypeBookingActionPerformed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Room's stastus:");
 
-        checkBoxFreeRoom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        checkBoxFreeRoom.setText("Free");
+        checkBoxFreeRoomBooking.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxFreeRoomBooking.setText("Free");
 
-        checkBoxBookedRoom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        checkBoxBookedRoom.setText("Booked");
+        checkBoxBookedRoomBooking.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxBookedRoomBooking.setText("Booked");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,15 +213,15 @@ public class Custommer_menu extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
-                        .addComponent(checkBoxVIPRoomType)
+                        .addComponent(checkBoxVIPRoomTypeBooking)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(checkBoxNormalRoomType)
+                        .addComponent(checkBoxNormalRoomTypeBooking)
                         .addGap(76, 76, 76)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkBoxFreeRoom)
+                        .addComponent(checkBoxFreeRoomBooking)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkBoxBookedRoom)))
+                        .addComponent(checkBoxBookedRoomBooking)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -228,11 +231,11 @@ public class Custommer_menu extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(checkBoxFreeRoom)
-                    .addComponent(checkBoxBookedRoom)
-                    .addComponent(checkBoxVIPRoomType)
+                    .addComponent(checkBoxFreeRoomBooking)
+                    .addComponent(checkBoxBookedRoomBooking)
+                    .addComponent(checkBoxVIPRoomTypeBooking)
                     .addComponent(jLabel12)
-                    .addComponent(checkBoxNormalRoomType))
+                    .addComponent(checkBoxNormalRoomTypeBooking))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -299,14 +302,37 @@ public class Custommer_menu extends javax.swing.JFrame {
             tableRoomBooked.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("Room's type:");
+
+        checkBoxVIPRoomTypeBooked.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxVIPRoomTypeBooked.setText("VIP");
+
+        checkBoxNormalRoomTypeBooked.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        checkBoxNormalRoomTypeBooked.setText("Normal");
+        checkBoxNormalRoomTypeBooked.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxNormalRoomTypeBookedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxVIPRoomTypeBooked)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBoxNormalRoomTypeBooked)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -314,6 +340,11 @@ public class Custommer_menu extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxVIPRoomTypeBooked)
+                    .addComponent(jLabel14)
+                    .addComponent(checkBoxNormalRoomTypeBooked))
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -431,9 +462,13 @@ public class Custommer_menu extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_buttonLogOutActionPerformed
 
-    private void checkBoxNormalRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNormalRoomTypeActionPerformed
+    private void checkBoxNormalRoomTypeBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNormalRoomTypeBookingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkBoxNormalRoomTypeActionPerformed
+    }//GEN-LAST:event_checkBoxNormalRoomTypeBookingActionPerformed
+
+    private void checkBoxNormalRoomTypeBookedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNormalRoomTypeBookedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxNormalRoomTypeBookedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,15 +509,18 @@ public class Custommer_menu extends javax.swing.JFrame {
     private javax.swing.JButton buttonLogOut;
     private javax.swing.JButton buttonRoomBoking;
     private javax.swing.JButton buttonRoomCancel;
-    private javax.swing.JCheckBox checkBoxBookedRoom;
-    private javax.swing.JCheckBox checkBoxFreeRoom;
-    private javax.swing.JCheckBox checkBoxNormalRoomType;
-    private javax.swing.JCheckBox checkBoxVIPRoomType;
+    private javax.swing.JCheckBox checkBoxBookedRoomBooking;
+    private javax.swing.JCheckBox checkBoxFreeRoomBooking;
+    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooked;
+    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooking;
+    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooked;
+    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooking;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -505,11 +543,11 @@ public class Custommer_menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtAgeOfUser;
     private javax.swing.JTextField txtNameOfUser;
     private javax.swing.JTextField txtPhoneOfUser;
-    private javax.swing.JTextField txtRoomName;
     private javax.swing.JTextField txtRoomNameBooked;
-    private javax.swing.JTextField txtRoomPrice;
+    private javax.swing.JTextField txtRoomNameBooking;
     private javax.swing.JTextField txtRoomPriceBooked;
-    private javax.swing.JTextField txtRoomType;
+    private javax.swing.JTextField txtRoomPriceBooking;
     private javax.swing.JTextField txtRoomTypeBooked;
+    private javax.swing.JTextField txtRoomTypeBooking;
     // End of variables declaration//GEN-END:variables
 }
