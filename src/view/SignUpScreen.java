@@ -62,6 +62,7 @@ public class SignUpScreen extends JFrame {
         usernameField = new JTextField(20); // Text Field
         usernameField.setPreferredSize(new Dimension(180, 30));
         usernameField.setFont(new Font("Arial", Font.PLAIN, 14));
+        usernameField.setText("");
 
         // Hàng 1 cột 0 - Icon
         gbc.gridx = 0;
@@ -166,9 +167,25 @@ public class SignUpScreen extends JFrame {
         String password = new String(passwordField.getPassword());
         String confirmPassword = new String(confirmPasswordField.getPassword());
 
+        // Kiểm tra tính hợp lệ của username
+        if (username.isEmpty()) {
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Please enter username.");
+            
+            return;
+        }
+
+        // Kiểm tra Password có rỗng ko
+
+        if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Please enter password.");
+            
+            return;
+        }
+        
         // Kiểm tra nếu mật khẩu và xác nhận mật khẩu khớp
-        if (!password.equals(confirmPassword)) {
+        if (!password.equals(confirmPassword) ) {
             JOptionPane.showMessageDialog(SignUpScreen.this, "Passwords do not match.");
+            
             return;
         }
 
