@@ -8,6 +8,7 @@ public class Hotel_manager {
 
     public static void main(String[] args) {
         Log_in p = new Log_in();
+        System.println("hello");
         p.setVisible(true);
         
     }
