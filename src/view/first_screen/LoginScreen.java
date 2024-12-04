@@ -35,7 +35,7 @@ public class LoginScreen extends JFrame {
 
         // Tiêu đề
         JLabel titleLabel = new JLabel("Log In");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
+        titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
         titleLabel.setForeground(Color.BLUE);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER); // Căn giữa
 
