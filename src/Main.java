@@ -1,8 +1,4 @@
-import database.UserDAO;
-import view.LoginScreen;
-import view.SignUpScreen;
-
-import javax.swing.*;
+import view.first_screen.LoginScreen;
 
 
 public class Main {

@@ -1,11 +1,10 @@
-package view;
+package view.first_screen;
 
 import services.LoginService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginScreen extends JFrame {
     private JTextField usernameField;
@@ -140,6 +139,7 @@ public class LoginScreen extends JFrame {
 
         loginButton.addActionListener(this::loginEvent);
         signUpButton.addActionListener(this::signUpEvent);
+        forgotPasswordButton.addActionListener(this::forgotPassEvent);
 
         // Add các thành phần vào mainPanel
         mainPanel.add(titleLabel, BorderLayout.NORTH);
@@ -168,5 +168,10 @@ public class LoginScreen extends JFrame {
         LoginScreen.this.setVisible(false);
     }
 
+    private void forgotPassEvent(ActionEvent e){
+        ForgotPassScreen forgotPassScreen = new ForgotPassScreen();
+        forgotPassScreen.setVisible(true);
+        LoginScreen.this.setVisible(false);
+    }
 
 }
