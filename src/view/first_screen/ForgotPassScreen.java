@@ -1,5 +1,6 @@
 package view.first_screen;
 
+import models.User;
 import services.ChangePassService;
 import services.RegisterService;
 
@@ -163,11 +164,22 @@ public class ForgotPassScreen extends JFrame {
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
         backButton.setFocusPainted(false);
 
+        changeButton = new JButton("Change");
+        changeButton.setBackground(new Color(0, 204, 204));
+        changeButton.setForeground(Color.WHITE);
+        changeButton.setFont(new Font("Arial", Font.BOLD, 14));
+        changeButton.setFocusPainted(false);
+
         buttonPanel.add(findUserButton);
+        buttonPanel.add(changeButton);
         buttonPanel.add(backButton);
+
+
+        changeButton.setVisible(false);
 
         findUserButton.addActionListener(this::findEvent);
         backButton.addActionListener(this::backEvent);
+        changeButton.addActionListener(this::changeEvent);
 
         // Add các thành phần vào mainPanel
         mainPanel.add(titleLabel, BorderLayout.NORTH);
@@ -184,6 +196,9 @@ public class ForgotPassScreen extends JFrame {
         ForgotPassScreen.this.setVisible(false);
     }
 
+    User curUser = new User();
+
+
     private void findEvent(ActionEvent e) {
         ChangePassService change = new ChangePassService();
         if (change.findUser(usernameField.getText()) != null){
@@ -198,7 +213,27 @@ public class ForgotPassScreen extends JFrame {
             newPasswordIcon.setVisible(true);
             newPasswordLabel.setVisible(true);
             newPasswordField.setVisible(true);
+
+            changeButton.setVisible(true);
+            findUserButton.setVisible(false);
+
+            curUser = change.findUser(usernameField.getText());
         }
         else  JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found");
+    }
+
+    private void changeEvent(ActionEvent e) {
+        String oldPassword = new String(oldPasswordField.getPassword());
+        String newPassword = new String(newPasswordField.getPassword());
+
+        if (oldPassword.isEmpty()){
+            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter old password.");
+        }
+
+        if (newPassword.isEmpty()){
+            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter new password.");
+        }
+
+
     }
 }
