@@ -27,6 +27,7 @@ public class ForgotPassScreen extends JFrame {
 
     private ChangePassService changePassService;
 
+
     public ForgotPassScreen() {
         // Tiêu đề chính
         setTitle("Forget Password");
@@ -178,8 +179,9 @@ public class ForgotPassScreen extends JFrame {
         changeButton.setVisible(false);
 
         findUserButton.addActionListener(this::findEvent);
-        backButton.addActionListener(this::backEvent);
         changeButton.addActionListener(this::changeEvent);
+        backButton.addActionListener(this::backEvent);
+
 
         // Add các thành phần vào mainPanel
         mainPanel.add(titleLabel, BorderLayout.NORTH);
@@ -197,10 +199,11 @@ public class ForgotPassScreen extends JFrame {
     }
 
     User curUser = new User();
+    ChangePassService change = new ChangePassService();
 
 
     private void findEvent(ActionEvent e) {
-        ChangePassService change = new ChangePassService();
+
         if (change.findUser(usernameField.getText()) != null){
             usernameIcon.setVisible(false);
             usernameLabel.setVisible(false);
@@ -228,12 +231,19 @@ public class ForgotPassScreen extends JFrame {
 
         if (oldPassword.isEmpty()){
             JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter old password.");
+            return;
         }
 
         if (newPassword.isEmpty()){
             JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter new password.");
+            return;
         }
 
-
+        if(change.changePassword(curUser, oldPassword, newPassword)){
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.setVisible(true);
+            ForgotPassScreen.this.setVisible(false);
+        }
+        else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Error");
     }
 }

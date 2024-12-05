@@ -13,7 +13,7 @@ import static database.UserDAO.connect;
 public class LoginService {
     private UserDAO userDAO;
 
-    public LoginService(){
+    public LoginService() {
         userDAO = new UserDAO();
     }
 
@@ -32,9 +32,9 @@ public class LoginService {
         return null;
     }
 
-    public boolean authenticate(String username, String password){
+    public boolean authenticate(String username, String password) {
         User user = getUserByUserName(username);
-        if (user != null && user.getPassword().equals(password)){
+        if (user != null && user.getPassword().equals(password)) {
             return true;
         }
         return false;
