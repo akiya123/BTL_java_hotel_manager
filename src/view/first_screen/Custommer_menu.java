@@ -2,6 +2,8 @@
 
 package view.first_screen;
 
+import javax.swing.JFrame;
+
 public class Custommer_menu extends javax.swing.JFrame {
 
     // tab User
@@ -63,7 +65,17 @@ public class Custommer_menu extends javax.swing.JFrame {
     // Khởi tạo đầu
     public Custommer_menu() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         buttonRoomCancel.setVisible(false);
+    }
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Custommer_menu().setVisible(true);
+            }
+        });
     }
 
      
@@ -541,31 +553,7 @@ public class Custommer_menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>            
-    public static void main(String args[]) {
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Custommer_menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Custommer_menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Custommer_menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Custommer_menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Custommer_menu().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JLabel jLabel1;
