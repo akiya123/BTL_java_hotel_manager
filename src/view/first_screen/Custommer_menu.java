@@ -42,8 +42,12 @@ public class Custommer_menu extends javax.swing.JFrame {
 
     private javax.swing.JButton buttonRoomBoking; // Nút đặt phòng
 
+
+    // EVENT
     private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+        // Đăng xuất và về màn hình đăng nhập
+        LoginScreen lg = new LoginScreen();
+        lg.setVisible(true);
         setVisible(false);
     }                                            
 
