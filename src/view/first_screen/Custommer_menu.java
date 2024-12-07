@@ -4,34 +4,66 @@ package view.first_screen;
 
 public class Custommer_menu extends javax.swing.JFrame {
 
+    // tab User
     private javax.swing.JTextField txtAgeOfUser;
     private javax.swing.JTextField txtNameOfUser;
     private javax.swing.JTextField txtPhoneOfUser;
+
+    private javax.swing.JButton buttonLogOut; // Nút đăng xuất
+
+    // tab Booked
     private javax.swing.JTextField txtRoomNameBooked;
-    private javax.swing.JTextField txtRoomNameBooking;
     private javax.swing.JTextField txtRoomPriceBooked;
-    private javax.swing.JTextField txtRoomPriceBooking;
     private javax.swing.JTextField txtRoomTypeBooked;
+
+        // Loại phòng
+    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooked; // Thường
+    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooked; // VIP
+
+    private javax.swing.JTable tableRoomBooked; // Bảng phòng đã đặt
+
+    private javax.swing.JButton buttonRoomCancel; // Nút hủy đặt phòng
+
+    // tab Booking
+    private javax.swing.JTextField txtRoomNameBooking;
+    private javax.swing.JTextField txtRoomPriceBooking;
     private javax.swing.JTextField txtRoomTypeBooking;
-    private javax.swing.JTable tableRoomBooked;
-    private javax.swing.JTable tableRoomBooking;
-    private javax.swing.JButton buttonLogOut;
-    private javax.swing.JButton buttonRoomBoking;
-    private javax.swing.JButton buttonRoomCancel;
-    private javax.swing.JCheckBox checkBoxBookedRoomBooking;
-    private javax.swing.JCheckBox checkBoxFreeRoomBooking;
-    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooked;
-    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooking;
-    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooked;
-    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooking;
+
+        // Check box 
+            // trạng thái
+    private javax.swing.JCheckBox checkBoxBookedRoomBooking; //  đã đc đặt
+    private javax.swing.JCheckBox checkBoxFreeRoomBooking; // chưa đc đặt
+
+            // Loại phòng
+    private javax.swing.JCheckBox checkBoxNormalRoomTypeBooking; // thường
+    private javax.swing.JCheckBox checkBoxVIPRoomTypeBooking; // VIP
+
+    private javax.swing.JTable tableRoomBooking; // bảng hiện thị các phòng 
+
+    private javax.swing.JButton buttonRoomBoking; // Nút đặt phòng
+
+    private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+        setVisible(false);
+    }                                            
+
+    private void checkBoxNormalRoomTypeBookingActionPerformed(java.awt.event.ActionEvent evt) {                                                              
+        // TODO add your handling code here:
+    }                                                             
+
+    private void checkBoxNormalRoomTypeBookedActionPerformed(java.awt.event.ActionEvent evt) {                                                             
+        // TODO add your handling code here:
+    }     
 
 
+    // Khởi tạo đầu
     public Custommer_menu() {
         initComponents();
         buttonRoomCancel.setVisible(false);
     }
 
-                          
+     
+    // Thiết đề - đừng quan tâm - tôi đang fix lại định dạng của Tab booked
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -474,18 +506,7 @@ public class Custommer_menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-        setVisible(false);
-    }                                            
-
-    private void checkBoxNormalRoomTypeBookingActionPerformed(java.awt.event.ActionEvent evt) {                                                              
-        // TODO add your handling code here:
-    }                                                             
-
-    private void checkBoxNormalRoomTypeBookedActionPerformed(java.awt.event.ActionEvent evt) {                                                             
-        // TODO add your handling code here:
-    }                                                            
+                                                       
 
     /**
      * @param args the command line arguments
