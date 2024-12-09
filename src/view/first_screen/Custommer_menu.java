@@ -224,11 +224,26 @@ public class Custommer_menu extends javax.swing.JFrame {
             new String [] {
                 "STT", "Room's name", "Type", "Stastus", "Price"
             }
-        ));
+            
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        tableRoomBooking.setAutoCreateRowSorter(true);
+
         jScrollPane1.setViewportView(tableRoomBooking);
         if (tableRoomBooking.getColumnModel().getColumnCount() > 0) {
-            tableRoomBooking.getColumnModel().getColumn(0).setMinWidth(30);
-            tableRoomBooking.getColumnModel().getColumn(0).setMaxWidth(20);
+            tableRoomBooking.getColumnModel().getColumn(0).setMaxWidth(50);
+            tableRoomBooking.getColumnModel().getColumn(1).setMaxWidth(300);
+            tableRoomBooking.getColumnModel().getColumn(2).setMaxWidth(100);
+            tableRoomBooking.getColumnModel().getColumn(3).setMaxWidth(120);
+            tableRoomBooking.getColumnModel().getColumn(4).setMaxWidth(300);
         }
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -394,11 +409,25 @@ public class Custommer_menu extends javax.swing.JFrame {
             new String [] {
                 "STT", "Room's name", "Type", "Stastus", "Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        tableRoomBooked.setAutoCreateRowSorter(true);
+
         jScrollPane3.setViewportView(tableRoomBooked);
         if (tableRoomBooked.getColumnModel().getColumnCount() > 0) {
-            tableRoomBooked.getColumnModel().getColumn(0).setMinWidth(30);
-            tableRoomBooked.getColumnModel().getColumn(0).setMaxWidth(20);
+            tableRoomBooking.getColumnModel().getColumn(0).setMaxWidth(50);
+            tableRoomBooking.getColumnModel().getColumn(1).setMaxWidth(300);
+            tableRoomBooking.getColumnModel().getColumn(2).setMaxWidth(100);
+            tableRoomBooking.getColumnModel().getColumn(3).setMaxWidth(120);
+            tableRoomBooking.getColumnModel().getColumn(4).setMaxWidth(300);
         }
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
