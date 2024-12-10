@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CustommerMenu extends JFrame {
-    private User curUser;
     // Biến sử dụng
     // tab Profile
 
@@ -92,7 +91,6 @@ public class CustommerMenu extends JFrame {
     //Khởi tạo đầu
     public CustommerMenu() {
         initComponents();
-
         //Căn giữa màn hình
         setLocationRelativeTo(null);
 

@@ -8,6 +8,9 @@ import view.second_sreen.CustommerMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class LoginScreen extends JFrame {
     private JTextField usernameField;
@@ -16,7 +19,6 @@ public class LoginScreen extends JFrame {
     private JButton signUpButton;
     private LoginService loginService;
     private UserService userService;
-    private static User curUser;
 
     public LoginScreen() {
         loginService = new LoginService();
@@ -170,6 +172,8 @@ public class LoginScreen extends JFrame {
             JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
         }
     }
+
+
 
     private void signUpEvent(ActionEvent e) {
         SignUpScreen signUpScreen = new SignUpScreen();
