@@ -204,7 +204,7 @@ public class ForgotPassScreen extends JFrame {
 
     private void findEvent(ActionEvent e) {
 
-        if (change.findUser(usernameField.getText()) != null){
+        if (change.findUser(usernameField.getText()) != null) {
             usernameIcon.setVisible(false);
             usernameLabel.setVisible(false);
             usernameField.setVisible(false);
@@ -221,29 +221,27 @@ public class ForgotPassScreen extends JFrame {
             findUserButton.setVisible(false);
 
             curUser = change.findUser(usernameField.getText());
-        }
-        else  JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found");
+        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found");
     }
 
     private void changeEvent(ActionEvent e) {
         String oldPassword = new String(oldPasswordField.getPassword());
         String newPassword = new String(newPasswordField.getPassword());
 
-        if (oldPassword.isEmpty()){
+        if (oldPassword.isEmpty()) {
             JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter old password.");
             return;
         }
 
-        if (newPassword.isEmpty()){
+        if (newPassword.isEmpty()) {
             JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter new password.");
             return;
         }
 
-        if(change.changePassword(curUser, oldPassword, newPassword)){
+        if (change.changePassword(curUser, oldPassword, newPassword)) {
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.setVisible(true);
             ForgotPassScreen.this.setVisible(false);
-        }
-        else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Error");
+        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Error");
     }
 }

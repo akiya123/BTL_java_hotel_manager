@@ -1,6 +1,9 @@
 package view.first_screen;
 
+import models.User;
 import services.LoginService;
+import services.UserService;
+import view.second_sreen.CustommerMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +15,12 @@ public class LoginScreen extends JFrame {
     private JButton loginButton;
     private JButton signUpButton;
     private LoginService loginService;
+    private UserService userService;
+    private static User curUser;
 
     public LoginScreen() {
         loginService = new LoginService();
+        userService = new UserService();
         // Tiêu đề chính
         setTitle("Log In");
         setSize(400, 600);
@@ -149,14 +155,17 @@ public class LoginScreen extends JFrame {
         // Add mainPanel vào JFrame
         add(mainPanel);
     }
+
     // Sự kiện khi người dùng click vào nút đăng nhập
     private void loginEvent(ActionEvent e) {
+        CustommerMenu cs = new CustommerMenu();
+
         String username = usernameField.getText();
         String password = String.valueOf(passwordField.getPassword());
 
-        // Kiểm tra tính hợp lệ
         if (loginService.authenticate(username, password)) {
-            JOptionPane.showMessageDialog(LoginScreen.this, "Login successful!");
+            cs.setVisible(true);
+            LoginScreen.this.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
         }

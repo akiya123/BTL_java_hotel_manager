@@ -1,18 +1,19 @@
 package services;
 
 import models.User;
+import view.first_screen.ForgotPassScreen;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static database.UserDAO.connect;
 
-public class ChangePassService {
+public class ChangePassService extends JFrame {
     public User findUser(String userName) {
-        LoginService lgsv = new LoginService();
-        User user = lgsv.getUserByUserName(userName);
+        UserService userService = new UserService();
+        User user = userService.getUserByUserName(userName);
         if (user != null) {
             return user;
         }
@@ -21,8 +22,8 @@ public class ChangePassService {
 
     public boolean changePassword(User user, String oldPassword, String newPassword) {
 
-        if (user == null) {
-            if (oldPassword != user.getPassword()) {
+        if (user != null) {
+            if (!oldPassword.equals(user.getPassword())) {
                 System.out.println("check");
                 return false;
             }
@@ -31,19 +32,24 @@ public class ChangePassService {
                 return false;
             }
             user.setPassword(newPassword);
-            String query = "UPDATE users SET password = ? WHERE username = ?";
+            String query = "UPDATE user SET password = ? WHERE username = ?";
             try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
-                stmt.setString(1, newPassword);
-                stmt.setString(2, user.getUsername());
-                int rowsUpdated = stmt.executeUpdate();
-                return rowsUpdated > 0;
+                stmt.setString(1, newPassword); // Gán mật khẩu mới
+                stmt.setString(2, user.getUsername()); // Gán tên người dùng
+
+                int rowsAffected = stmt.executeUpdate(); // Thực thi câu lệnh UPDATE
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(ChangePassService.this, "Change Successfully!");
+                    return true; // Mật khẩu đã được cập nhật
+                } else {
+                    System.out.println("No user found with the specified username.");
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            return true;
+
+
         }
-        System.out.println("check3");
         return false;
     }
-
 }

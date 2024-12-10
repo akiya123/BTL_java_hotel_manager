@@ -1,37 +1,41 @@
 package services;
 
+import database.UserDAO;
+import models.User;
+
+import javax.swing.*;
 import java.sql.*;
 import java.util.Scanner;
 
+import static database.UserDAO.connect;
+
 public class RegisterService {
+    private UserDAO userDAO;
+    private static User user;
 
-    public static Connection getConnection() {
-        String url = "jdbc:postgresql://localhost:5432/mydatabase";
-        String user = "postgres";
-        String password = "khuong123";
-
-        try {
-            return DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public RegisterService(){
+        userDAO = new UserDAO();
+        user = new User();
     }
 
-    public static boolean addUser(String username, String password) {
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        if (username == null || password == null){
-            System.out.println("Tên đăng nhập hoặc mật khẩu không được để trống.");
-            return false;
-        }
 
-        try (Connection conn = getConnection();
+    public static boolean addUser(String username, String password, String email, String phoneNumber) {
+        String sql = "INSERT INTO user (username, password, email, phoneNumber) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, username);
             pstmt.setString(2, password);
+            pstmt.setString(3, email);
+            pstmt.setString(4, phoneNumber);
             pstmt.executeUpdate();
-            System.out.println("Người dùng đã được đăng ký thành công!");
+
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setPhoneNumber(phoneNumber);
+
             return true;
         } catch (SQLException e) {
             System.out.println("Lỗi khi thêm người dùng.");

@@ -6,8 +6,8 @@ import java.sql.*;
 
 public class UserDAO {
     public static Connection connect() {
-        String url = "jdbc:postgresql://localhost:5432/mydatabase";
-        String user = "postgres";
+        String url = "jdbc:mysql://localhost:3306/userdb";
+        String user = "root";
         String password = "khuong123";
 
         try {
