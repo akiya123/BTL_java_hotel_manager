@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CustommerMenu extends JFrame {
+    private UserService userService;
     // Biến sử dụng
     // tab Profile
 
@@ -88,12 +89,19 @@ public class CustommerMenu extends JFrame {
         buttonRoomBoking.setVisible(false);
     }
 
+    public void setProfile(String userName) {
+        User curUser = userService.getUserByUserName(userName);
+        lbNameProfile.setText(curUser.getUsername());
+        lbMailProfile.setText(curUser.getEmail());
+        lbPhoneProfile.setText(curUser.getPhoneNumber());
+    }
+
     //Khởi tạo đầu
     public CustommerMenu() {
+        userService = new UserService();
         initComponents();
         //Căn giữa màn hình
         setLocationRelativeTo(null);
-
         //Ẩn đặt phòng của tab booking
         bmdpstt_dont_use_this.setVisible(false);
         txtSTTBooking.setVisible(false);
@@ -180,7 +188,6 @@ public class CustommerMenu extends JFrame {
         RoomServiceManager roomServiceManager = new RoomServiceManager();
         roomServiceManager.bookingRoom(tableModel2, roomName);
     }
-
 
 
     // Các biến

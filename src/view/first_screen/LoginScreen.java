@@ -30,7 +30,7 @@ public class LoginScreen extends JFrame {
         setLocationRelativeTo(null);
 
         // Tạo panel chính
-        JPanel mainPanel = new JPanel(){
+        JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -166,13 +166,18 @@ public class LoginScreen extends JFrame {
         String password = String.valueOf(passwordField.getPassword());
 
         if (loginService.authenticate(username, password)) {
-            cs.setVisible(true);
-            LoginScreen.this.setVisible(false);
+            cs.setProfile(username);
+            if (userService.getRoleByUserName(username).equals("User")) {
+                cs.setVisible(true);
+                LoginScreen.this.setVisible(false);
+            }
+            else {
+                System.out.println("cehck");
+            }
         } else {
             JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
         }
     }
-
 
 
     private void signUpEvent(ActionEvent e) {
@@ -181,7 +186,7 @@ public class LoginScreen extends JFrame {
         LoginScreen.this.setVisible(false);
     }
 
-    private void forgotPassEvent(ActionEvent e){
+    private void forgotPassEvent(ActionEvent e) {
         ForgotPassScreen forgotPassScreen = new ForgotPassScreen();
         forgotPassScreen.setVisible(true);
         LoginScreen.this.setVisible(false);

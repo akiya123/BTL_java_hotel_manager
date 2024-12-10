@@ -20,7 +20,7 @@ public class RegisterService {
 
 
     public static boolean addUser(String username, String password, String email, String phoneNumber) {
-        String sql = "INSERT INTO user (username, password, email, phoneNumber) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO user (username, password, email, phoneNumber) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -29,6 +29,7 @@ public class RegisterService {
             pstmt.setString(2, password);
             pstmt.setString(3, email);
             pstmt.setString(4, phoneNumber);
+            pstmt.setString(5, "User");
             pstmt.executeUpdate();
 
             user.setUsername(username);
@@ -42,6 +43,5 @@ public class RegisterService {
             e.printStackTrace();
             return false;
         }
-
     }
 }

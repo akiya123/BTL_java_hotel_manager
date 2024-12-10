@@ -26,4 +26,19 @@ public class UserService {
         }
         return null;
     }
+
+    public String getRoleByUserName(String userName) {
+        String query = "SELECT role FROM user WHERE username = ?";
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, userName);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String role = rs.getString("role");
+                return role;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "User";
+    }
 }
