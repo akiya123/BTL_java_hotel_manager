@@ -52,4 +52,28 @@ public class ChangePassService extends JFrame {
         }
         return false;
     }
+
+    public boolean forgotPassword(String newPassword, String confirmPassword, String username) {
+        if (newPassword.isEmpty() || confirmPassword.isEmpty()) {
+            return false;
+        }
+        if (!newPassword.equals(confirmPassword)) {
+            return false;
+        }
+        String query = "UPDATE user SET password = ? WHERE username = ?";
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, newPassword);
+            stmt.setString(2, username);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(ChangePassService.this, "Đổi thành công!");
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

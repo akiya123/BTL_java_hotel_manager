@@ -13,9 +13,9 @@ public class ForgotPassScreen extends JFrame {
     private JLabel usernameIcon;
     private JTextField usernameField;
 
-    private JLabel oldPasswordLabel;
-    private JLabel oldPasswordIcon;
-    private JPasswordField oldPasswordField;
+    private JLabel confirmPasswordLabel;
+    private JLabel confirmPasswordIcon;
+    private JPasswordField confirmPasswordField;
 
     private JLabel newPasswordLabel;
     private JLabel newPasswordIcon;
@@ -89,63 +89,63 @@ public class ForgotPassScreen extends JFrame {
         formPanel.add(usernameField, gbc);
 
         // Old Password
-        oldPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        oldPasswordLabel = new JLabel("Old Password");
-        oldPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
-        oldPasswordField = new JPasswordField(20);
-        oldPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
-        oldPasswordField.setPreferredSize(new Dimension(180, 30));
-
-        // Hàng 3 cột 0
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 1;  // Chỉ chiếm 1 ô ngang
-        oldPasswordIcon.setPreferredSize(new Dimension(20, 20)); // Kích thước icon
-        formPanel.add(oldPasswordIcon, gbc);
-        oldPasswordIcon.setVisible(false);
-
-        // Hàng 2 cột 1 - Label Password
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        formPanel.add(oldPasswordLabel, gbc);
-        oldPasswordLabel.setVisible(false);
-
-        // Hàng 3 cột 1 - Textfield Password
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        gbc.gridwidth = 1; // Làm rộng textfield password
-        formPanel.add(oldPasswordField, gbc);
-        oldPasswordField.setVisible(false);
-
-
-        // New Password
         newPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        newPasswordLabel = new JLabel("New Password");
+        newPasswordLabel = new JLabel("Old Password");
         newPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         newPasswordField = new JPasswordField(20);
         newPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
         newPasswordField.setPreferredSize(new Dimension(180, 30));
 
+        // Hàng 3 cột 0
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;  // Chỉ chiếm 1 ô ngang
+        newPasswordIcon.setPreferredSize(new Dimension(20, 20)); // Kích thước icon
+        formPanel.add(newPasswordIcon, gbc);
+        newPasswordIcon.setVisible(false);
+
+        // Hàng 2 cột 1 - Label Password
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        formPanel.add(newPasswordLabel, gbc);
+        newPasswordLabel.setVisible(false);
+
+        // Hàng 3 cột 1 - Textfield Password
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1; // Làm rộng textfield password
+        formPanel.add(newPasswordField, gbc);
+        newPasswordField.setVisible(false);
+
+
+        // New Password
+        confirmPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
+        confirmPasswordLabel = new JLabel("New Password");
+        confirmPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        confirmPasswordField = new JPasswordField(20);
+        confirmPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
+        confirmPasswordField.setPreferredSize(new Dimension(180, 30));
+
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 1;
-        formPanel.add(newPasswordIcon, gbc);
-        newPasswordIcon.setVisible(false);
+        formPanel.add(confirmPasswordIcon, gbc);
+        confirmPasswordIcon.setVisible(false);
 
         // Hàng 4 cột 1
         gbc.gridx = 1;
         gbc.gridy = 4;
         gbc.gridwidth = 1;
-        formPanel.add(newPasswordLabel, gbc);
-        newPasswordLabel.setVisible(false);
+        formPanel.add(confirmPasswordLabel, gbc);
+        confirmPasswordLabel.setVisible(false);
 
         // Hàng 5 cột 1
         gbc.gridx = 1;
         gbc.gridy = 5;
         gbc.gridwidth = 1;
-        formPanel.add(newPasswordField, gbc);
-        newPasswordField.setVisible(false);
+        formPanel.add(confirmPasswordField, gbc);
+        confirmPasswordField.setVisible(false);
 
         // Nút Find, back và Change
         JPanel buttonPanel = new JPanel();
@@ -179,7 +179,7 @@ public class ForgotPassScreen extends JFrame {
         changeButton.setVisible(false);
 
         findUserButton.addActionListener(this::findEvent);
-        changeButton.addActionListener(this::changeEvent);
+        changeButton.addActionListener(this::forgotPasswordEvent);
         backButton.addActionListener(this::backEvent);
 
 
@@ -209,9 +209,9 @@ public class ForgotPassScreen extends JFrame {
             usernameLabel.setVisible(false);
             usernameField.setVisible(false);
 
-            oldPasswordIcon.setVisible(true);
-            oldPasswordLabel.setVisible(true);
-            oldPasswordField.setVisible(true);
+            confirmPasswordLabel.setVisible(true);
+            confirmPasswordIcon.setVisible(true);
+            confirmPasswordField.setVisible(true);
 
             newPasswordIcon.setVisible(true);
             newPasswordLabel.setVisible(true);
@@ -224,12 +224,12 @@ public class ForgotPassScreen extends JFrame {
         } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found");
     }
 
-    private void changeEvent(ActionEvent e) {
-        String oldPassword = new String(oldPasswordField.getPassword());
+    private void forgotPasswordEvent(ActionEvent e) {
+        String confirmPassword = new String(confirmPasswordField.getPassword());
         String newPassword = new String(newPasswordField.getPassword());
 
-        if (oldPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter old password.");
+        if (confirmPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter confirm password.");
             return;
         }
 
@@ -238,7 +238,7 @@ public class ForgotPassScreen extends JFrame {
             return;
         }
 
-        if (change.changePassword(curUser, oldPassword, newPassword)) {
+        if (change.forgotPassword(newPassword, confirmPassword, curUser.getUsername())) {
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.setVisible(true);
             ForgotPassScreen.this.setVisible(false);

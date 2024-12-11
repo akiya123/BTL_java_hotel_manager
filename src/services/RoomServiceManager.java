@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 
 import static database.UserDAO.connect;
+import static java.lang.Integer.parseInt;
 
 public class RoomServiceManager {
     private UserDAO userDAO;
@@ -17,7 +18,7 @@ public class RoomServiceManager {
         userService = new UserService();
     }
 
-    public static void loadDataFromDatabase(DefaultTableModel tableModel, String type, String day) {
+    public void loadDataFromDatabase(DefaultTableModel tableModel, String type, String day) {
         // Truy vấn SQL để tải dữ liệu
         String query = "SELECT roomName, roomType, checkOutDate, price FROM room WHERE roomType = ? and status = ?";
 
@@ -34,7 +35,7 @@ public class RoomServiceManager {
                     """;
 
             try (PreparedStatement pstmtUpdate = conn.prepareStatement(updateQuery)) {
-                pstmtUpdate.setInt(1, Integer.parseInt(day)); // Số ngày thêm vào ngày hiện tại
+                pstmtUpdate.setInt(1, parseInt(day)); // Số ngày thêm vào ngày hiện tại
                 pstmtUpdate.setString(2, type); // Loại phòng để lọc
                 pstmtUpdate.executeUpdate();
             }
@@ -66,7 +67,7 @@ public class RoomServiceManager {
         }
     }
 
-    public static void bookingRoom(DefaultTableModel tableModel, String roomName) {
+    public void bookingRoom(DefaultTableModel tableModel, String roomName) {
         String query = "SELECT * FROM room WHERE roomName = ?";
 //        tableModel.setRowCount(0);
         try (Connection conn = connect();
@@ -84,7 +85,7 @@ public class RoomServiceManager {
             }
             pstmt.setString(1, roomName);
             try (ResultSet rs = pstmt.executeQuery()) {
-                int stt = 1; // Đánh số thứ tự
+                int stt = tableModel.getRowCount() + 1;
                 while (rs.next()) {
                     String name = rs.getString("roomName");
                     String roomType = rs.getString("roomType");
@@ -94,12 +95,57 @@ public class RoomServiceManager {
                     // Thêm hàng vào TableModel
                     tableModel.addRow(new Object[]{stt, name, roomType, checkoutDate, price});
                     stt++;
+
+                    JOptionPane.showMessageDialog(null, "Thành công!",
+                            "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
                     "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void cancelBookingRoom(DefaultTableModel tableModel, String stt) {
+        boolean found = false;
+        int Stt = parseInt(stt);
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            int currentSTT = (int) tableModel.getValueAt(i, 0);
+            if (currentSTT == Stt) {
+                String roomName = (String) tableModel.getValueAt(i, 1);
+                try (Connection conn = connect()) {
+                    String updateQuery = """
+                            UPDATE room 
+                            SET status = 'Available'
+                            WHERE roomName = ?
+                            """;
+
+                    try (PreparedStatement pstmtUpdate = conn.prepareStatement(updateQuery)) {
+                        pstmtUpdate.setString(1, roomName);
+                        pstmtUpdate.executeUpdate();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
+                            "Database Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+                tableModel.removeRow(i);
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            for (int i = 0; i < tableModel.getRowCount(); i++) {
+                tableModel.setValueAt(i + 1, i, 0);
+            }
+            JOptionPane.showMessageDialog(null, "Thành công!",
+                    "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Không tìm thấy hàng có STT: " + Stt,
+                    "Thông báo lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

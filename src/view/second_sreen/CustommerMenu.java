@@ -1,6 +1,7 @@
 package view.second_sreen;
 
 import models.User;
+import services.ChangePassService;
 import services.LoginService;
 import services.RoomServiceManager;
 import services.UserService;
@@ -110,6 +111,8 @@ public class CustommerMenu extends JFrame {
 
         buttonFindBooking.addActionListener(this::findBookingEvent);
         buttonRoomBoking.addActionListener(this::bookingEvent);
+        buttonCancelBooked.addActionListener(this::cancelBookingEvent);
+        buttonChangePassword.addActionListener(this::changePasswordEvent);
     }
 
 
@@ -170,6 +173,8 @@ public class CustommerMenu extends JFrame {
     // Book Event
     private void bookingEvent(ActionEvent actionEvent) {
         String roomName = "";
+        String day = txtBookingDate.getText();
+        String type = (String) boxTypeTRoomBooking.getSelectedItem();
         try {
             int stt = Integer.parseInt(txtSTTBooking.getText());
             if (stt > 0 && stt <= tableRoomBooking.getRowCount()) {
@@ -187,9 +192,27 @@ public class CustommerMenu extends JFrame {
 
         RoomServiceManager roomServiceManager = new RoomServiceManager();
         roomServiceManager.bookingRoom(tableModel2, roomName);
+        roomServiceManager.loadDataFromDatabase(tableModel1, type, day);
     }
 
+    private void cancelBookingEvent(ActionEvent actionEvent) {
+        RoomServiceManager roomServiceManager = new RoomServiceManager();
+        String day = txtBookingDate.getText();
+        String type = (String) boxTypeTRoomBooking.getSelectedItem();
+        String stt = txtSTTCancelbooked.getText();
+        if (stt.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nhập số thứ tự bạn muốn hủy phòng!");
+        }
+        roomServiceManager.cancelBookingRoom(tableModel2 ,stt);
+        roomServiceManager.loadDataFromDatabase(tableModel1, type, day);
+    }
 
+    private void changePasswordEvent(ActionEvent actionEvent) {
+        ChangePassService changePassService = new ChangePassService();
+        String oldPassword;
+        String newPassword;
+        changePassService.forgotPassword(oldPassword, newPassword, lbNameProfile.getText());
+    }
     // Các biến
 
     private JLabel Ban_la_dont_use_this;
@@ -581,7 +604,7 @@ public class CustommerMenu extends JFrame {
                                 .addGap(20, 20, 20))
         );
 
-        jTabbedPane1.addTab("profile", jPanel5);
+        jTabbedPane1.addTab("Profile", jPanel5);
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

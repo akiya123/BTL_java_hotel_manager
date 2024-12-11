@@ -4,6 +4,7 @@ import models.User;
 import services.LoginService;
 import services.UserService;
 import view.second_sreen.CustommerMenu;
+import view.second_sreen.Manager.MenuDisplay;
 
 import javax.swing.*;
 import java.awt.*;
@@ -161,6 +162,7 @@ public class LoginScreen extends JFrame {
     // Sự kiện khi người dùng click vào nút đăng nhập
     private void loginEvent(ActionEvent e) {
         CustommerMenu cs = new CustommerMenu();
+        MenuDisplay mn = new MenuDisplay();
 
         String username = usernameField.getText();
         String password = String.valueOf(passwordField.getPassword());
@@ -169,10 +171,13 @@ public class LoginScreen extends JFrame {
             cs.setProfile(username);
             if (userService.getRoleByUserName(username).equals("User")) {
                 cs.setVisible(true);
+                mn.setVisible(false);
                 LoginScreen.this.setVisible(false);
             }
             else {
-                System.out.println("cehck");
+                cs.setVisible(false);
+                mn.setVisible(true);
+                LoginScreen.this.setVisible(false);
             }
         } else {
             JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
