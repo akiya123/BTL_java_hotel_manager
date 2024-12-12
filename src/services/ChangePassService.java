@@ -20,17 +20,17 @@ public class ChangePassService extends JFrame {
         return null;
     }
 
-    public boolean changePassword(User user, String oldPassword, String newPassword) {
+    public boolean changePassword(User user, String oldPassword, String newPassword, String confirmPassword) {
 
         if (user != null) {
             if (!oldPassword.equals(user.getPassword())) {
-                System.out.println("check");
                 return false;
             }
-            if (newPassword.isEmpty() || oldPassword.isEmpty()) {
-                System.out.println("check2");
+
+            else if (!newPassword.equals(confirmPassword)) {
                 return false;
             }
+
             user.setPassword(newPassword);
             String query = "UPDATE user SET password = ? WHERE username = ?";
             try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -39,16 +39,14 @@ public class ChangePassService extends JFrame {
 
                 int rowsAffected = stmt.executeUpdate(); // Thực thi câu lệnh UPDATE
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(ChangePassService.this, "Change Successfully!");
-                    return true; // Mật khẩu đã được cập nhật
+                    return true;
                 } else {
-                    System.out.println("No user found with the specified username.");
+                    return false;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-
+            return true;
         }
         return false;
     }

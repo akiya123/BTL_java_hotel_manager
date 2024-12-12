@@ -20,16 +20,17 @@ public class RegisterService {
 
 
     public static boolean addUser(String username, String password, String email, String phoneNumber) {
-        String sql = "INSERT INTO user (username, password, email, phoneNumber) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (userId ,username, password, email, phoneNumber, role) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
-            pstmt.setString(3, email);
-            pstmt.setString(4, phoneNumber);
-            pstmt.setString(5, "User");
+            pstmt.setString(1, "00");
+            pstmt.setString(2, username);
+            pstmt.setString(3, password);
+            pstmt.setString(4, email);
+            pstmt.setString(5, phoneNumber);
+            pstmt.setString(6, "User");
             pstmt.executeUpdate();
 
             user.setUsername(username);

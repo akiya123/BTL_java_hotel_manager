@@ -19,7 +19,8 @@ public class UserService {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 String phoneNumber = rs.getString("phoneNumber");
-                return new User(userName, password, email, phoneNumber);
+                int id = rs.getInt("userId");
+                return new User(userName, password, email, phoneNumber, id);
             }
         } catch (SQLException e) {
             e.printStackTrace();

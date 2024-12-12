@@ -3,7 +3,8 @@ package view.first_screen;
 import models.User;
 import services.LoginService;
 import services.UserService;
-import view.second_sreen.CustommerMenu;
+import view.second_sreen.Customer.CustommerMenu;
+import view.second_sreen.Manager.MenuDisplay;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,7 @@ public class LoginScreen extends JFrame {
         setLocationRelativeTo(null);
 
         // Tạo panel chính
-        JPanel mainPanel = new JPanel(){
+        JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -161,18 +162,26 @@ public class LoginScreen extends JFrame {
     // Sự kiện khi người dùng click vào nút đăng nhập
     private void loginEvent(ActionEvent e) {
         CustommerMenu cs = new CustommerMenu();
+        MenuDisplay mn = new MenuDisplay();
 
         String username = usernameField.getText();
         String password = String.valueOf(passwordField.getPassword());
 
         if (loginService.authenticate(username, password)) {
-            cs.setVisible(true);
-            LoginScreen.this.setVisible(false);
+            cs.setProfile(username);
+            if (userService.getRoleByUserName(username).equals("User")) {
+                cs.setVisible(true);
+                LoginScreen.this.setVisible(false);
+            }
+            else {
+                mn.setVisible(true);
+                LoginScreen.this.setVisible(false);
+            }
+            return;
         } else {
             JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
         }
     }
-
 
 
     private void signUpEvent(ActionEvent e) {
@@ -181,7 +190,7 @@ public class LoginScreen extends JFrame {
         LoginScreen.this.setVisible(false);
     }
 
-    private void forgotPassEvent(ActionEvent e){
+    private void forgotPassEvent(ActionEvent e) {
         ForgotPassScreen forgotPassScreen = new ForgotPassScreen();
         forgotPassScreen.setVisible(true);
         LoginScreen.this.setVisible(false);

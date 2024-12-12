@@ -1,17 +1,23 @@
 package models;
 
 public class User {
+    private int id;
     private String username;
     private String password;
     private String email;
     private String phoneNumber;
 
     public User(){}
-    public User(String username, String password, String email, String phoneNumber) {
+    public User(String username, String password, String email, String phoneNumber, int id) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setUsername(String username) {

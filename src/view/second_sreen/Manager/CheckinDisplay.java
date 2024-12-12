@@ -95,7 +95,6 @@ public class CheckinDisplay extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                System.out.println("haha");
                 mainJPanel.add(inforJPanel(),BorderLayout.CENTER);
                 // Cập nhật giao diện
                 mainJPanel.revalidate();

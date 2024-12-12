@@ -90,7 +90,7 @@ public class ForgotPassScreen extends JFrame {
 
         // Old Password
         newPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        newPasswordLabel = new JLabel("Old Password");
+        newPasswordLabel = new JLabel("New Password");
         newPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         newPasswordField = new JPasswordField(20);
         newPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -121,7 +121,7 @@ public class ForgotPassScreen extends JFrame {
 
         // New Password
         confirmPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        confirmPasswordLabel = new JLabel("New Password");
+        confirmPasswordLabel = new JLabel("Confirm Password");
         confirmPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         confirmPasswordField = new JPasswordField(20);
         confirmPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));

@@ -18,6 +18,7 @@ public class MenuDisplay extends JFrame {
 
         
         JPanel manageRoomPanel = new ManageDisplay().pnManagerDisplay();
+
         tabbedPane.addTab("Manage Room", manageRoomPanel);
         // Thêm panel vào tab
         JPanel customerCheckInPanel= new CheckinDisplay().createCheckInPanel();
@@ -38,10 +39,7 @@ public class MenuDisplay extends JFrame {
 //        
 //        tabbedPane.addTab("Room Service", roomServicePanel);
 
-        // Thêm TabbedPane vào JFrame
         add(tabbedPane);
-
-        setVisible(true);
     }
 
 }

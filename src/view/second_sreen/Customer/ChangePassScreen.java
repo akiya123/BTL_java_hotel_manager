@@ -1,64 +1,94 @@
 
-package view.second_sreen;
+package view.second_sreen.Customer;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
+import models.User;
 import services.ChangePassService;
+import services.UserService;
+import view.first_screen.ForgotPassScreen;
+import view.first_screen.LoginScreen;
+
+import java.awt.event.ActionEvent;
 
 public class ChangePassScreen extends javax.swing.JFrame {
-    private javax.swing.JTextField txtConfrimPass;
-    private javax.swing.JTextField txtNewPass;
+    private javax.swing.JPasswordField txtConfrimPass;
+    private javax.swing.JPasswordField txtNewPass;
     private javax.swing.JTextField txtOldPass;
 
-    private javax.swing.JButton buttonBackCustommerScreen;
-    private javax.swing.JButton buttonChangepass;
+    private javax.swing.JButton buttonBackCustommerScreen = new JButton();
+    private javax.swing.JButton buttonChangepass = new JButton();
 
-    private String user;
+    private CustommerMenu cs;
 
-    public void setUser(String user) {
-        this.user = user;
+    private String username;
+
+    public void setUserName(String username) {
+        this.username = username;
     }
-
-    //ENVENT
-    private void buttonChangepassActionPerformed(java.awt.event.ActionEvent evt) {
-        // Đổi mk
-        ChangePassService changePassService = new ChangePassService();
-        String oldPassword = txtOldPass.getText() ;
-        String newPassword = txtNewPass.getText();
-        String confirmPassword = txtConfrimPass.getText();
-        if(!newPassword.equals(confirmPassword)){
-            JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không trùng Khớp!");
-            txtNewPass.setText("");
-            txtConfrimPass.setText("");
-            return;
-        }
-        changePassService.forgotPassword(oldPassword, newPassword, user);
-        setVisible(false);
-    }
-
-    private void buttonBackCustommerScreenActionPerformed(java.awt.event.ActionEvent evt) {
-        // Chở về
-        setVisible(false);
-    }
-
-
     public ChangePassScreen() {
+        cs = new CustommerMenu();
+        buttonChangepass.addActionListener(this::changePassEvent);
+        buttonBackCustommerScreen.addActionListener(this::backEvent);
         initComponents();
         //Căn giữa màn hình
         setLocationRelativeTo(null);
+    }
+
+    private void backEvent(ActionEvent actionEvent) {
+        cs.setProfile(username);
+        cs.setVisible(true);
+        ChangePassScreen.this.setVisible(false);
+    }
+
+    //ENVENT
+    private void changePassEvent(ActionEvent e) {
+        // Đổi mk
+        ChangePassService changePassService = new ChangePassService();
+        cs.setProfile(username);
+        UserService userService = new UserService();
+        String oldPassword = txtOldPass.getText() ;
+        String newPassword = txtNewPass.getText();
+        String confirmPassword = txtConfrimPass.getText();
+
+        if (oldPassword.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nhập mật khẩu cũ!");
+            return;
+        }
+
+        if (newPassword.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nhập mật khẩu mới!");
+            return;
+        }
+
+        if (confirmPassword.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu!");
+            return;
+        }
+
+        User curUser = userService.getUserByUserName(username);
+        if (changePassService.changePassword(curUser, oldPassword, newPassword, confirmPassword)){
+            JOptionPane.showMessageDialog(this, "Đổi thành công!");
+            cs.setVisible(true);
+            ChangePassScreen.this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Đổi không thành công!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            txtNewPass.setText("");
+            txtConfrimPass.setText("");
+            txtOldPass.setText("");
+        }
     }
 
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        buttonChangepass = new javax.swing.JButton();
-        buttonBackCustommerScreen = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNewPass = new javax.swing.JTextField();
-        txtConfrimPass = new javax.swing.JTextField();
+        txtNewPass = new javax.swing.JPasswordField();
+        txtConfrimPass = new javax.swing.JPasswordField();
         txtOldPass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,20 +102,9 @@ public class ChangePassScreen extends javax.swing.JFrame {
 
         buttonChangepass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         buttonChangepass.setText("Change");
-        buttonChangepass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonChangepassActionPerformed(evt);
-            }
-        });
 
         buttonBackCustommerScreen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         buttonBackCustommerScreen.setText("Back");
-        buttonBackCustommerScreen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBackCustommerScreenActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Mật khẩu hiện tại: ");
 
