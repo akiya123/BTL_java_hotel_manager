@@ -1,17 +1,13 @@
 package view.first_screen;
 
-import models.User;
 import services.LoginService;
 import services.UserService;
 import view.second_sreen.Customer.CustommerMenu;
-import view.second_sreen.Manager.MenuDisplay;
+import view.second_sreen.Manager.ManagerMenu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class LoginScreen extends JFrame {
     private JTextField usernameField;
@@ -162,19 +158,20 @@ public class LoginScreen extends JFrame {
     // Sự kiện khi người dùng click vào nút đăng nhập
     private void loginEvent(ActionEvent e) {
         CustommerMenu cs = new CustommerMenu();
-        MenuDisplay mn = new MenuDisplay();
+        ManagerMenu mm = new ManagerMenu();
 
         String username = usernameField.getText();
         String password = String.valueOf(passwordField.getPassword());
 
         if (loginService.authenticate(username, password)) {
             cs.setProfile(username);
+            cs.setCurUserName(username);
             if (userService.getRoleByUserName(username).equals("User")) {
                 cs.setVisible(true);
                 LoginScreen.this.setVisible(false);
             }
             else {
-                mn.setVisible(true);
+                mm.setVisible(true);
                 LoginScreen.this.setVisible(false);
             }
             return;

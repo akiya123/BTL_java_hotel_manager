@@ -25,12 +25,11 @@ public class RoomServiceManager {
         // Xóa dữ liệu cũ trong bảng
         tableModel.setRowCount(0);
 
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(query)) {
             // Cập nhật checkoutDate thành ngày hiện tại + day
             String updateQuery = """
                     UPDATE room 
-                    SET checkOutDate = DATE_ADD(CURDATE(), INTERVAL ? DAY) 
+                    SET checkOutDate = DATE_ADD(CURDATE(), INTERVAL ? DAY)
                     WHERE roomType = ?
                     """;
 
@@ -62,19 +61,17 @@ public class RoomServiceManager {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
-                    "Database Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void bookingRoom(DefaultTableModel tableModel, String roomName, int id) {
         String query = "SELECT * FROM room WHERE roomName = ?";
 //        tableModel.setRowCount(0);
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(query)) {
             String updateQuery = """
                     UPDATE room 
-                    SET status = ?, userId = ?
+                    SET status = ?, userId = ?, checkInDate = CURDATE()
                     WHERE roomName = ?
                     """;
 
@@ -97,14 +94,12 @@ public class RoomServiceManager {
                     tableModel.addRow(new Object[]{stt, name, roomType, checkoutDate, price});
                     stt++;
 
-                    JOptionPane.showMessageDialog(null, "Thành công!",
-                            "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
-                    "Database Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -118,7 +113,7 @@ public class RoomServiceManager {
                 try (Connection conn = connect()) {
                     String updateQuery = """
                             UPDATE room 
-                            SET status = 'Available', userId = null
+                            SET status = 'Available', userId = null, checkInDate = null, checkOutDate = null
                             WHERE roomName = ?
                             """;
 
@@ -128,8 +123,7 @@ public class RoomServiceManager {
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
-                            "Database Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
                 }
 
                 tableModel.removeRow(i);
@@ -142,43 +136,9 @@ public class RoomServiceManager {
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 tableModel.setValueAt(i + 1, i, 0);
             }
-            JOptionPane.showMessageDialog(null, "Thành công!",
-                    "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Không tìm thấy hàng có STT: " + Stt,
-                    "Thông báo lỗi", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void loadDataFromDatabaseForManager(DefaultTableModel tableModel) {
-        String query = """
-                SELECT u.username, u.phoneNumber, r.roomName, r.roomType, r.checkOutDate 
-                FROM room r 
-                LEFT JOIN user u ON r.userId = u.userId 
-                WHERE r.status = 'Unavailable'
-                """;
-        tableModel.setRowCount(0);
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(query);
-             ResultSet rs = pstmt.executeQuery()) {
-
-            int stt = 1; // Đánh số thứ tự
-            while (rs.next()) {
-                String username = rs.getString("username");
-                String phoneNumber = rs.getString("phoneNumber");
-                String roomName = rs.getString("roomName");
-                String roomType = rs.getString("roomType");
-                String checkoutDate = rs.getString("checkOutDate");
-
-                // Thêm hàng vào TableModel
-                tableModel.addRow(new Object[]{username, phoneNumber, roomName,roomType, checkoutDate});
-                stt++;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(),
-                    "Database Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Không tìm thấy hàng có STT: " + Stt, "Thông báo lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -8,8 +8,6 @@ public class Main {
             public void run() {
                 LoginScreen loginScreen = new LoginScreen();
                 loginScreen.setVisible(true);
-//                Custommer_menu = new Custommer_menu();
-//                SignUpScreen signUpScreen = new SignUpScreen();
             }
         });
     }

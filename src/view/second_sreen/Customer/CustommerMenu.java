@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 
 public class CustommerMenu extends JFrame {
     private UserService userService;
+    public String curUserName;
     // Biến sử dụng
     // tab Profile
 
@@ -117,12 +118,21 @@ public class CustommerMenu extends JFrame {
 
 
     // Find Event
+    public void setCurUserName(String curUserName) {
+        this.curUserName = curUserName;
+    }
+
     private void findBookingEvent(ActionEvent actionEvent) {
         UserService userService = new UserService();
         String username = txtYourName.getText();
         String sdt = txtYourPhone.getText();
         String day = txtBookingDate.getText();
         String type = (String) boxTypeTRoomBooking.getSelectedItem();
+
+        if (!username.equals(curUserName)){
+            JOptionPane.showMessageDialog(this, "Tên không trùng khớp!");
+            return;
+        }
 
         if (username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nhập tên của bạn!");
