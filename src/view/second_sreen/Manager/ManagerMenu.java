@@ -13,20 +13,20 @@ import java.awt.event.ActionEvent;
 
 public class ManagerMenu extends javax.swing.JFrame {
 
-// Hoàn
-   //Biến có sự để tâm thấp
+    // Hoàn
+    //Biến có sự để tâm thấp
     private javax.swing.JPanel panelManageUser;//Panel chính
     private javax.swing.JScrollPane jScrollPane1; // Tạo đinh dạng cho bảng
 
     private javax.swing.JLabel lbPhoneManagerUser; // Chữ "SĐT"
     private javax.swing.JLabel lbCustommerNameManagerUser;// Chữ "Tên"
     private javax.swing.JLabel lbTitleManagerUser; // Chữ "Thông tin khách hàng"
-    
+
     //Biến cần để tâm
-        // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
-                //Mail
-                private javax.swing.JLabel lbSetMailManageUser;
-                private javax.swing.JLabel lbMailManageUserFlase;
+    // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
+    //Mail
+    private javax.swing.JLabel lbSetMailManageUser;
+    private javax.swing.JLabel lbMailManageUserFlase;
 
         /*Để trả nhận ý tưởng là tạo 1 biến để kiểm tra trạng thái nhận phòng của phòng
          tạo 1 ArrayList<pair<"Tên phòng","Một biến boollen">> - arrBooking lưu trạng thái nhận trả phòng
@@ -36,43 +36,43 @@ public class ManagerMenu extends javax.swing.JFrame {
          - Username từ txtCustommerNameManageUser
          */
 
-        private javax.swing.JButton ButtonCheckInManageUserFlase; // Nút nhận phòng - sẽ chọn phòng check in tại bảng
-        private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
-        private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
-        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */ 
+    private javax.swing.JButton ButtonCheckInManageUserFlase; // Nút nhận phòng - sẽ chọn phòng check in tại bảng
+    private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
+    private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
+        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */
 
-        private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn - 
+    private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn -
         ý tưởng là nếu hết hạn nhận phòng thì sẽ để trạng thái phòng là phòng trống rồi xóa phòng khỏi bảng */
 
-        //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
+    //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
 
-        private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
+    private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
 
-        private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
+    private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
 
-                private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
-                //Label để hiện chữ
-                
-                private javax.swing.JLabel lbRoomNameManagerUserFalse;
-                private javax.swing.JLabel lbRoomTypeManagerUserFalse;
-                private javax.swing.JLabel lbDateInManagerUserFalse;
-                private javax.swing.JLabel lbDateOutManagerUserFalse;
-                //Label để hiện thông tin
-                private javax.swing.JLabel lbSetDateInManagerUserFalse;
-                private javax.swing.JLabel lbSetDateOutManagerUserFalse;
-                private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
-                private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
+    private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
+    //Label để hiện chữ
 
-    
-        //Những biến sẽ hiện
-        private javax.swing.JButton buttonFindManageUser; // Nút tìm
-        
-                //txt nhập thông tin tìm
-                private javax.swing.JTextField txtCustommerNameManageUser; // tên
-                private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
+    private javax.swing.JLabel lbRoomNameManagerUserFalse;
+    private javax.swing.JLabel lbRoomTypeManagerUserFalse;
+    private javax.swing.JLabel lbDateInManagerUserFalse;
+    private javax.swing.JLabel lbDateOutManagerUserFalse;
+    //Label để hiện thông tin
+    private javax.swing.JLabel lbSetDateInManagerUserFalse;
+    private javax.swing.JLabel lbSetDateOutManagerUserFalse;
+    private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
+    private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
 
 
-//Hoàn - end
+    //Những biến sẽ hiện
+    private javax.swing.JButton buttonFindManageUser; // Nút tìm
+
+    //txt nhập thông tin tìm
+    private javax.swing.JTextField txtCustommerNameManageUser; // tên
+    private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
+
+
+    //Hoàn - end
     private ManagerService managerService;
     private UserService userService;
 
@@ -104,29 +104,27 @@ public class ManagerMenu extends javax.swing.JFrame {
 
 
     public ManagerMenu() {
-        initComponents();
-        setLocationRelativeTo(null);
         managerService = new ManagerService();
         userService = new UserService();
 
-
+        initComponents();
+        setLocationRelativeTo(null);
         butonLogOut.addActionListener(this::logOutEvent);
         buttonReportCustommerDetail.addActionListener(this::reportEvent);
     }
 
     private void reportEvent(ActionEvent actionEvent) {
         String userName = txtDateCustommerDetail.getText();
-        if (userName.isEmpty()){
+        if (userName.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nhập tên khách hàng bạn muốn xem thông tin!");
             return;
         }
 
         User user = userService.getUserByUserName(userName);
-        if (user != null){
+        if (user != null) {
             managerService.loadDataByUserName(tableModel2, userName);
             tableCustommerDetailFalse.setVisible(true);
-        }
-        else {
+        } else {
             // Quán triệt hơn nên chỉ tìm role User, sửa cả find bên Customer
             JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng có tên như trên!");
         }
@@ -210,7 +208,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         tableListManageRoom.setModel(tableModel1);
         tableListManageRoom.setAutoCreateRowSorter(true);
 
-        managerService.loadDataFromDatabaseForManager(tableModel1); 
+        managerService.loadDataFromDatabaseForManager(tableModel1);
 
         jScrollPane2.setViewportView(tableListManageRoom);
         if (tableListManageRoom.getColumnModel().getColumnCount() > 0) {
@@ -428,19 +426,19 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         //Thông tin bảng đặt phòng
         tableBookingInformationManageUserFalse.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                
-            },
-            new String [] {
-                "STT", "Tên phòng", "Loại phòng", "Trạng thái"
-            }
+                new Object[][]{
+
+                },
+                new String[]{
+                        "STT", "Tên phòng", "Loại phòng", "Trạng thái"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(tableBookingInformationManageUserFalse);
@@ -522,7 +520,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         panelManageUser.add(lbSetDateInManagerUserFalse);
         lbSetDateInManagerUserFalse.setBounds(670, 380, 190, 30);
 
-        jTabbedPane1.addTab("Manger user", panelManageUser);
+        jTabbedPane1.addTab("Manager user", panelManageUser);
         //Hoàn - end
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 255));
