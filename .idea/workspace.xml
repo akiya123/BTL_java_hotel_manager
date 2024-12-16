@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fb71a357-9387-4054-bb78-d74435cbbb25" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_3_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BTL_JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BTL_JAVA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-j-8.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "khuong1742005"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/akiya123/BTL_java_hotel_manager.git",
+    "accountId": "44b78263-1d03-441b-9ca0-15c94b088d7c"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2qIMaq4ccAhyAiuep0B8YISRb2b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "masterK",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/boyzs/Desktop/Java/BTL_JAVA/lib/mysql-connector-j-9.1.0.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb71a357-9387-4054-bb78-d74435cbbb25" name="Changes" comment="" />
+      <created>1734345702448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734345702448</updated>
+    </task>
+    <servers />
+  </component>
+</project>

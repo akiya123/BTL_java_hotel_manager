@@ -1,6 +1,4 @@
-
 package view.second_sreen.Manager;
-
 
 import models.User;
 import services.ManagerService;
@@ -15,49 +13,47 @@ import java.awt.event.ActionEvent;
 public class ManagerMenu extends javax.swing.JFrame {
 
 
+    private javax.swing.JButton buttonBillDetailFalse; // Nút xuất đơn
+    private javax.swing.JButton buttonReportCustommerDetail; // Nút tìm Khách
 
-        private javax.swing.JButton buttonBillDetailFalse; // Nút xuất đơn
-        private javax.swing.JButton buttonReportCustommerDetail; // Nút tìm Khách
+    // Chú thích
+    private javax.swing.JLabel lbCustommerInforDetailFalse; // tiêu đề
+    private javax.swing.JLabel lbMailDetailFalse;
+    private javax.swing.JLabel lbNameDetailFalse;
+    private javax.swing.JLabel lbPhoneDetailFalse;
 
-        // Chú thích
-        private javax.swing.JLabel lbCustommerInforDetailFalse; // tiêu đề
-        private javax.swing.JLabel lbMailDetailFalse; 
-        private javax.swing.JLabel lbNameDetailFalse;
-        private javax.swing.JLabel lbPhoneDetailFalse;
+    // lb Hiện thông tin
+    private javax.swing.JLabel lbSetMailDetailFalse;
+    private javax.swing.JLabel lbSetNameDetailFalse;
+    private javax.swing.JLabel lbSetPhoneDetailFalse;
 
-        // lb Hiện thông tin
-        private javax.swing.JLabel lbSetMailDetailFalse;
-        private javax.swing.JLabel lbSetNameDetailFalse;
-        private javax.swing.JLabel lbSetPhoneDetailFalse;
+    // bảng
+    private javax.swing.JTable tableRoomInforDetailFalse;
 
-        // bảng
-        private javax.swing.JTable tableRoomInforDetailFalse;
-        
-        private javax.swing.JTextField txtUsernameCustommerDetail;
+    private javax.swing.JTextField txtUsernameCustommerDetail;
 
-        // Biến panel thiết kế
-        private javax.swing.JLabel jLabel13;
-        private javax.swing.JLabel jLabel8;
-        private javax.swing.JPanel jPanel4;
-        private javax.swing.JPanel jPanelMain;
-        private javax.swing.JScrollPane jScrollPane3;
+    // Biến panel thiết kế
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelMain;
+    private javax.swing.JScrollPane jScrollPane3;
 
-       
 
-// Hoàn
-   //Biến có sự để tâm thấp
+    // Hoàn
+    //Biến có sự để tâm thấp
     private javax.swing.JPanel panelManageUser;//Panel chính
     private javax.swing.JScrollPane jScrollPane1; // Tạo đinh dạng cho bảng
 
     private javax.swing.JLabel lbPhoneManagerUser; // Chữ "SĐT"
     private javax.swing.JLabel lbCustommerNameManagerUser;// Chữ "Tên"
     private javax.swing.JLabel lbTitleManagerUser; // Chữ "Thông tin khách hàng"
-    
+
     //Biến cần để tâm
-        // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
-                //Mail
-                private javax.swing.JLabel lbSetMailManageUser;
-                private javax.swing.JLabel lbMailManageUserFlase;
+    // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
+    //Mail
+    private javax.swing.JLabel lbSetMailManageUser;
+    private javax.swing.JLabel lbMailManageUserFlase;
 
         /*Để trả nhận ý tưởng là tạo 1 biến để kiểm tra trạng thái nhận phòng của phòng
          tạo 1 ArrayList<pair<"Tên phòng","Một biến boollen">> - arrBooking lưu trạng thái nhận trả phòng
@@ -68,42 +64,42 @@ public class ManagerMenu extends javax.swing.JFrame {
          */
 
 
-        private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
-        private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
-        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */ 
+    private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
+    private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
+        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */
 
-        private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn - 
+    private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn -
         ý tưởng là nếu hết hạn nhận phòng thì sẽ để trạng thái phòng là phòng trống rồi xóa phòng khỏi bảng */
 
-        //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
+    //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
 
-        private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
+    private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
 
-        private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
+    private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
 
-                private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
-                //Label để hiện chữ
-                
-                private javax.swing.JLabel lbRoomNameManagerUserFalse;
-                private javax.swing.JLabel lbRoomTypeManagerUserFalse;
-                private javax.swing.JLabel lbDateInManagerUserFalse;
-                private javax.swing.JLabel lbDateOutManagerUserFalse;
-                //Label để hiện thông tin
-                private javax.swing.JLabel lbSetDateInManagerUserFalse;
-                private javax.swing.JLabel lbSetDateOutManagerUserFalse;
-                private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
-                private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
+    private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
+    //Label để hiện chữ
 
-    
-        //Những biến sẽ hiện
-        private javax.swing.JButton buttonFindManageUser; // Nút tìm
-        
-                //txt nhập thông tin tìm
-                private javax.swing.JTextField txtCustommerNameManageUser; // tên
-                private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
+    private javax.swing.JLabel lbRoomNameManagerUserFalse;
+    private javax.swing.JLabel lbRoomTypeManagerUserFalse;
+    private javax.swing.JLabel lbDateInManagerUserFalse;
+    private javax.swing.JLabel lbDateOutManagerUserFalse;
+    //Label để hiện thông tin
+    private javax.swing.JLabel lbSetDateInManagerUserFalse;
+    private javax.swing.JLabel lbSetDateOutManagerUserFalse;
+    private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
+    private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
 
 
-//Hoàn - end
+    //Những biến sẽ hiện
+    private javax.swing.JButton buttonFindManageUser; // Nút tìm
+
+    //txt nhập thông tin tìm
+    private javax.swing.JTextField txtCustommerNameManageUser; // tên
+    private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
+
+
+    //Hoàn - end
     private ManagerService managerService;
     private UserService userService;
 
@@ -127,39 +123,42 @@ public class ManagerMenu extends javax.swing.JFrame {
     // KhuongPham EDIT
     private DefaultTableModel tableModel1;
     private DefaultTableModel tableModel2;
+    private DefaultTableModel tableModel3;
 
 
     public ManagerMenu() {
-        initComponents();
-        setLocationRelativeTo(null);
         managerService = new ManagerService();
         userService = new UserService();
-
+        initComponents();
+        setLocationRelativeTo(null);
 
         butonLogOut.addActionListener(this::logOutEvent);
         buttonReportCustommerDetail.addActionListener(this::reportEvent);
-
+        buttonFindManageUser.addActionListener(this::findUserEvent);
+        ButtonClearManageUserFalse.addActionListener(this::clearEvent);
+//        ButtonCheckOutManageUserFlase.addActionListener(this::checkoutEvent);
+//        ButtonDateInExpiredManageUserFlase.addActionListener(this::dateExpiredEvent);
         tableBookingInformationManageUserFalse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 GetIndexRoomInformationManageUserFalse(evt);
             }
         });
-     
     }
 
     private void reportEvent(ActionEvent actionEvent) {
-        String userName = txtDateCustommerDetail.getText();
-        if (userName.isEmpty()){
+        String userName = txtUsernameCustommerDetail.getText();
+        if (userName.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nhập tên khách hàng bạn muốn xem thông tin!");
             return;
         }
 
         User user = userService.getUserByUserName(userName);
-        if (user != null){
-            managerService.loadDataByUserName(tableModel2, userName);
-            tableCustommerDetailFalse.setVisible(true);
-        }
-        else {
+        if (user != null) {
+            lbSetNameDetailFalse.setText(user.getUsername());
+            lbSetPhoneDetailFalse.setText(user.getPhoneNumber());
+            lbSetMailDetailFalse.setText(user.getEmail());
+            managerService.loadDataByUserName(tableModel2, user.getUsername());
+        } else {
             // Quán triệt hơn nên chỉ tìm role User, sửa cả find bên Customer
             JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng có tên như trên!");
         }
@@ -171,11 +170,41 @@ public class ManagerMenu extends javax.swing.JFrame {
         loginScreen.setVisible(true);
     }
 
-    private void GetIndexRoomInformationManageUserFalse(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
-        int row = this.tableBookingInformationManageUserFalse.getSelectedRow();
+    private void findUserEvent(ActionEvent actionEvent) {
+        String username = txtCustommerNameManageUser.getText();
+        String sdt = txtCustommerPhoneManageUser.getText();
+
+        if (username.isEmpty()) {
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập tên!");
+            return;
+        }
+
+        if (sdt.isEmpty()){
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập số điện thoại!");
+            return;
+        }
+
+        User user = userService.getUserByUserName(username);
+        if (user != null){
+            managerService.checkUserBooking(tableModel3, user.getUsername());
+
+        }
+        else {
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!");
+        }
     }
 
+    private void clearEvent(ActionEvent actionEvent) {
+        txtCustommerNameManageUser.setText("");
+        txtCustommerPhoneManageUser.setText("");
+        // Set false
+    }
+
+    private void GetIndexRoomInformationManageUserFalse(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        int row = this.tableBookingInformationManageUserFalse.getSelectedRow() + 1;
+        managerService.fetchUserByStt(tableModel3, row, lbSetRoomNameManagerUserFalse, lbSetRoomTypeManagerUserFalse, lbSetDateInManagerUserFalse, lbSetDateOutManagerUserFalse);
+    }
 
     //Tao bang
     private void initComponents() {
@@ -226,13 +255,8 @@ public class ManagerMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         // Thông tin bảng checkIn
-        tableModel1 = new DefaultTableModel(
-                new Object[][]{},
-                new String[]{"Tên khách hàng", "Số điện thoại", "Tên Phòng", "Loại phòng", "Ngày nhận phòng", "Ngày trả phòng", "Giá"}
-        ) {
-            boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false
-            };
+        tableModel1 = new DefaultTableModel(new Object[][]{}, new String[]{"Tên khách hàng", "Số điện thoại", "Tên Phòng", "Loại phòng", "Ngày nhận phòng", "Ngày trả phòng", "Giá"}) {
+            boolean[] canEdit = new boolean[]{false, false, false, false, false};
 
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -243,7 +267,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         tableListManageRoom.setModel(tableModel1);
         tableListManageRoom.setAutoCreateRowSorter(true);
 
-        managerService.loadDataFromDatabaseForManager(tableModel1); 
+        managerService.loadDataFromDatabaseForManager(tableModel1);
 
         jScrollPane2.setViewportView(tableListManageRoom); // ko
         if (tableListManageRoom.getColumnModel().getColumnCount() > 0) {
@@ -274,44 +298,20 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addContainerGap(368, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(353, 353, 353))
-        );
-        jPanel7Layout.setVerticalGroup(
-                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel2)
-                                .addContainerGap(16, Short.MAX_VALUE))
-        );
+        jPanel7Layout.setHorizontalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup().addContainerGap(368, Short.MAX_VALUE).addComponent(jLabel2).addGap(353, 353, 353)));
+        jPanel7Layout.setVerticalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel7Layout.createSequentialGroup().addGap(16, 16, 16).addComponent(jLabel2).addContainerGap(16, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane2)
-                                .addContainerGap()) // ko
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jScrollPane2).addContainerGap()) // ko
         );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)) // ko
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel1Layout.createSequentialGroup().addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE).addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(31, 31, 31)) // ko
         );
 
         jTabbedPane1.addTab("Manage room", jPanel1);
 
 
-        // Detail
+        //Detail
         jPanelMain = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -358,14 +358,18 @@ public class ManagerMenu extends javax.swing.JFrame {
         lbPhoneDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbPhoneDetailFalse.setText("SĐT:");
 
-        tableRoomInforDetailFalse.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                
-            },
-            new String [] {
-                "Tên phòng", "Loại", "Ngày nhận phòng", "Giá phòng"
+        tableModel2 = new DefaultTableModel(new Object[][]{}, new String[]{"Tên phòng", "Loại", "Ngày nhận phòng", "Giá phòng"}) {
+            boolean[] canEdit = new boolean[]{false, false, false, false, false};
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
             }
-        ));
+        };
+
+        tableRoomInforDetailFalse.setModel(tableModel2);
+        tableRoomInforDetailFalse.setAutoCreateRowSorter(true);
+
         jScrollPane3.setViewportView(tableRoomInforDetailFalse);
 
         buttonBillDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -385,92 +389,14 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(lbCustommerInforDetailFalse))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbMailDetailFalse)
-                            .addComponent(lbNameDetailFalse)
-                            .addComponent(lbPhoneDetailFalse))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbSetNameDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                            .addComponent(lbSetPhoneDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbSetMailDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(150, 150, 150)
-                    .addComponent(jLabel13)
-                    .addContainerGap(614, Short.MAX_VALUE)))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel8)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addComponent(lbCustommerInforDetailFalse)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(lbNameDetailFalse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbPhoneDetailFalse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbMailDetailFalse))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(lbSetNameDetailFalse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbSetPhoneDetailFalse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbSetMailDetailFalse)))
-                        .addGap(82, 82, 82)
-                        .addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(111, 111, 111))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(87, 87, 87)
-                    .addComponent(jLabel13)
-                    .addContainerGap(431, Short.MAX_VALUE)))
-        );
+        jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(18, 18, 18).addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(161, 161, 161)).addGroup(jPanel4Layout.createSequentialGroup().addGap(20, 20, 20).addComponent(jLabel8).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addGroup(jPanel4Layout.createSequentialGroup().addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(102, 102, 102).addComponent(lbCustommerInforDetailFalse)).addGroup(jPanel4Layout.createSequentialGroup().addGap(64, 64, 64).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lbMailDetailFalse).addComponent(lbNameDetailFalse).addComponent(lbPhoneDetailFalse)).addGap(18, 18, 18).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lbSetNameDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE).addComponent(lbSetPhoneDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(lbSetMailDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))).addGroup(jPanel4Layout.createSequentialGroup().addGap(118, 118, 118).addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(49, 49, 49)).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(150, 150, 150).addComponent(jLabel13).addContainerGap(614, Short.MAX_VALUE))));
+        jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(30, 30, 30).addComponent(jLabel8).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(17, 17, 17).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(31, 31, 31).addComponent(lbCustommerInforDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addComponent(lbNameDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(lbPhoneDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lbMailDetailFalse)).addGroup(jPanel4Layout.createSequentialGroup().addComponent(lbSetNameDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(lbSetPhoneDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lbSetMailDetailFalse))).addGap(82, 82, 82).addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup().addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))).addGap(111, 111, 111)).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(87, 87, 87).addComponent(jLabel13).addContainerGap(431, Short.MAX_VALUE))));
 
         jPanelMain.add(jPanel4);
         jPanel4.setBounds(6, -4, 950, 550);
 
-
         jTabbedPane1.addTab("Custommer detail", jPanelMain);
-        //Deatil - end
+        //Manager User
 
         // // Hoàn
         // thêm tab mới ở đây
@@ -520,22 +446,20 @@ public class ManagerMenu extends javax.swing.JFrame {
         ButtonClearManageUserFalse.setBounds(550, 80, 127, 27);
 
         //Thông tin bảng đặt phòng
-        tableBookingInformationManageUserFalse.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                
-            },
-            new String [] {
-                "STT", "Tên phòng", "Loại phòng", "Trạng thái"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
 
+        tableModel3 = new DefaultTableModel(new Object[][]{}, new String[]{"STT", "Tên phòng", "Loại phòng", "Trạng thái"}) {
+            boolean[] canEdit = new boolean[]{false, false, false, false, false};
+
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
-        });
+        };
+
+        tableBookingInformationManageUserFalse.setModel(tableModel3);
+        tableBookingInformationManageUserFalse.setAutoCreateRowSorter(true);
+
+
         jScrollPane1.setViewportView(tableBookingInformationManageUserFalse);
         if (tableBookingInformationManageUserFalse.getColumnModel().getColumnCount() > 0) {
             tableBookingInformationManageUserFalse.getColumnModel().getColumn(0).setMinWidth(50);
@@ -627,40 +551,15 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addContainerGap(381, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                                .addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(377, 377, 377))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(369, 369, 369))))
-        );
-        jPanel5Layout.setVerticalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel10)
-                                .addGap(155, 155, 155)
-                                .addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(255, Short.MAX_VALUE))
-        );
+        jPanel5Layout.setHorizontalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel5Layout.createSequentialGroup().addContainerGap(381, Short.MAX_VALUE).addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup().addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(377, 377, 377)).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup().addComponent(jLabel10).addGap(369, 369, 369)))));
+        jPanel5Layout.setVerticalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel5Layout.createSequentialGroup().addGap(26, 26, 26).addComponent(jLabel10).addGap(155, 155, 155).addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(255, Short.MAX_VALUE)));
 
         jTabbedPane1.addTab("Log Out", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane1)
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane1)
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jTabbedPane1));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jTabbedPane1));
 
         pack();
     }
