@@ -1,6 +1,7 @@
 
 package view.second_sreen.Manager;
 
+
 import models.User;
 import services.ManagerService;
 import services.RoomServiceManager;
@@ -12,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class ManagerMenu extends javax.swing.JFrame {
+
 
 
         private javax.swing.JButton buttonBillDetailFalse; // Nút xuất đơn
@@ -136,6 +138,13 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         butonLogOut.addActionListener(this::logOutEvent);
         buttonReportCustommerDetail.addActionListener(this::reportEvent);
+
+        tableBookingInformationManageUserFalse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GetIndexRoomInformationManageUserFalse(evt);
+            }
+        });
+     
     }
 
     private void reportEvent(ActionEvent actionEvent) {
@@ -160,6 +169,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         setVisible(false);
         LoginScreen loginScreen = new LoginScreen();
         loginScreen.setVisible(true);
+    }
+
+    private void GetIndexRoomInformationManageUserFalse(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        int row = this.tableBookingInformationManageUserFalse.getSelectedRow();
     }
 
 
@@ -297,7 +311,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         jTabbedPane1.addTab("Manage room", jPanel1);
 
 
-        //Detail
+        // Detail
         jPanelMain = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -454,8 +468,9 @@ public class ManagerMenu extends javax.swing.JFrame {
         jPanelMain.add(jPanel4);
         jPanel4.setBounds(6, -4, 950, 550);
 
+
         jTabbedPane1.addTab("Custommer detail", jPanelMain);
-        //Deatil
+        //Deatil - end
 
         // // Hoàn
         // thêm tab mới ở đây
