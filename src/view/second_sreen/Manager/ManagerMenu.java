@@ -1,6 +1,7 @@
 
 package view.second_sreen.Manager;
 
+
 import models.User;
 import services.ManagerService;
 import services.RoomServiceManager;
@@ -13,20 +14,50 @@ import java.awt.event.ActionEvent;
 
 public class ManagerMenu extends javax.swing.JFrame {
 
-    // Hoàn
-    //Biến có sự để tâm thấp
+
+
+        private javax.swing.JButton buttonBillDetailFalse; // Nút xuất đơn
+        private javax.swing.JButton buttonReportCustommerDetail; // Nút tìm Khách
+
+        // Chú thích
+        private javax.swing.JLabel lbCustommerInforDetailFalse; // tiêu đề
+        private javax.swing.JLabel lbMailDetailFalse; 
+        private javax.swing.JLabel lbNameDetailFalse;
+        private javax.swing.JLabel lbPhoneDetailFalse;
+
+        // lb Hiện thông tin
+        private javax.swing.JLabel lbSetMailDetailFalse;
+        private javax.swing.JLabel lbSetNameDetailFalse;
+        private javax.swing.JLabel lbSetPhoneDetailFalse;
+
+        // bảng
+        private javax.swing.JTable tableRoomInforDetailFalse;
+        
+        private javax.swing.JTextField txtUsernameCustommerDetail;
+
+        // Biến panel thiết kế
+        private javax.swing.JLabel jLabel13;
+        private javax.swing.JLabel jLabel8;
+        private javax.swing.JPanel jPanel4;
+        private javax.swing.JPanel jPanelMain;
+        private javax.swing.JScrollPane jScrollPane3;
+
+       
+
+// Hoàn
+   //Biến có sự để tâm thấp
     private javax.swing.JPanel panelManageUser;//Panel chính
     private javax.swing.JScrollPane jScrollPane1; // Tạo đinh dạng cho bảng
 
     private javax.swing.JLabel lbPhoneManagerUser; // Chữ "SĐT"
     private javax.swing.JLabel lbCustommerNameManagerUser;// Chữ "Tên"
     private javax.swing.JLabel lbTitleManagerUser; // Chữ "Thông tin khách hàng"
-
+    
     //Biến cần để tâm
-    // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
-    //Mail
-    private javax.swing.JLabel lbSetMailManageUser;
-    private javax.swing.JLabel lbMailManageUserFlase;
+        // Những biến khởi tạo sẽ ẩn đi - Hiện khi nhấn sự kiện ButtonFindManageUser
+                //Mail
+                private javax.swing.JLabel lbSetMailManageUser;
+                private javax.swing.JLabel lbMailManageUserFlase;
 
         /*Để trả nhận ý tưởng là tạo 1 biến để kiểm tra trạng thái nhận phòng của phòng
          tạo 1 ArrayList<pair<"Tên phòng","Một biến boollen">> - arrBooking lưu trạng thái nhận trả phòng
@@ -36,59 +67,54 @@ public class ManagerMenu extends javax.swing.JFrame {
          - Username từ txtCustommerNameManageUser
          */
 
-    private javax.swing.JButton ButtonCheckInManageUserFlase; // Nút nhận phòng - sẽ chọn phòng check in tại bảng
-    private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
-    private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
-        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */
 
-    private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn -
+        private javax.swing.JButton ButtonCheckOutManageUserFlase; // Nút Trả phòng
+        private javax.swing.JButton ButtonClearManageUserFalse; /*Nút làm mới -
+        ý tưởng dùng để ẩn tất cả biến có False ở cuối tên và setText txtCustommerNameManageUser và txtCustommerPhoneManageUser */ 
+
+        private javax.swing.JButton ButtonDateInExpiredManageUserFlase; /*  Nút phòng hết hạn - 
         ý tưởng là nếu hết hạn nhận phòng thì sẽ để trạng thái phòng là phòng trống rồi xóa phòng khỏi bảng */
 
-    //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
+        //Thông tin đặt phòng - ý tưởng là khi nhấn vào hàng nào thông tin của hàng đấy sẽ hiện trên những biến lbSet
 
-    private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
+        private javax.swing.JLabel lbBookingInformationManageUserFlase; // Chữ "thông tin đặt phòng"
 
-    private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
+        private javax.swing.JTable tableBookingInformationManageUserFalse;// bảng Chứa thông tin
 
-    private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
-    //Label để hiện chữ
+                private javax.swing.JLabel lbRoomInformationManageUserFalse; // Chữ "thông tin phòng"
+                //Label để hiện chữ
+                
+                private javax.swing.JLabel lbRoomNameManagerUserFalse;
+                private javax.swing.JLabel lbRoomTypeManagerUserFalse;
+                private javax.swing.JLabel lbDateInManagerUserFalse;
+                private javax.swing.JLabel lbDateOutManagerUserFalse;
+                //Label để hiện thông tin
+                private javax.swing.JLabel lbSetDateInManagerUserFalse;
+                private javax.swing.JLabel lbSetDateOutManagerUserFalse;
+                private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
+                private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
 
-    private javax.swing.JLabel lbRoomNameManagerUserFalse;
-    private javax.swing.JLabel lbRoomTypeManagerUserFalse;
-    private javax.swing.JLabel lbDateInManagerUserFalse;
-    private javax.swing.JLabel lbDateOutManagerUserFalse;
-    //Label để hiện thông tin
-    private javax.swing.JLabel lbSetDateInManagerUserFalse;
-    private javax.swing.JLabel lbSetDateOutManagerUserFalse;
-    private javax.swing.JLabel lbSetRoomNameManagerUserFalse;
-    private javax.swing.JLabel lbSetRoomTypeManagerUserFalse;
+    
+        //Những biến sẽ hiện
+        private javax.swing.JButton buttonFindManageUser; // Nút tìm
+        
+                //txt nhập thông tin tìm
+                private javax.swing.JTextField txtCustommerNameManageUser; // tên
+                private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
 
 
-    //Những biến sẽ hiện
-    private javax.swing.JButton buttonFindManageUser; // Nút tìm
-
-    //txt nhập thông tin tìm
-    private javax.swing.JTextField txtCustommerNameManageUser; // tên
-    private javax.swing.JTextField txtCustommerPhoneManageUser; // SĐT
-
-
-    //Hoàn - end
+//Hoàn - end
     private ManagerService managerService;
     private UserService userService;
 
     private javax.swing.JButton butonLogOut;
 
-    private javax.swing.JButton buttonReportCustommerDetail;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane2; // ko
     private javax.swing.JTabbedPane jTabbedPane1;
 
 
@@ -104,27 +130,36 @@ public class ManagerMenu extends javax.swing.JFrame {
 
 
     public ManagerMenu() {
+        initComponents();
+        setLocationRelativeTo(null);
         managerService = new ManagerService();
         userService = new UserService();
 
-        initComponents();
-        setLocationRelativeTo(null);
+
         butonLogOut.addActionListener(this::logOutEvent);
         buttonReportCustommerDetail.addActionListener(this::reportEvent);
+
+        tableBookingInformationManageUserFalse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GetIndexRoomInformationManageUserFalse(evt);
+            }
+        });
+     
     }
 
     private void reportEvent(ActionEvent actionEvent) {
         String userName = txtDateCustommerDetail.getText();
-        if (userName.isEmpty()) {
+        if (userName.isEmpty()){
             JOptionPane.showMessageDialog(this, "Nhập tên khách hàng bạn muốn xem thông tin!");
             return;
         }
 
         User user = userService.getUserByUserName(userName);
-        if (user != null) {
+        if (user != null){
             managerService.loadDataByUserName(tableModel2, userName);
             tableCustommerDetailFalse.setVisible(true);
-        } else {
+        }
+        else {
             // Quán triệt hơn nên chỉ tìm role User, sửa cả find bên Customer
             JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng có tên như trên!");
         }
@@ -136,22 +171,23 @@ public class ManagerMenu extends javax.swing.JFrame {
         loginScreen.setVisible(true);
     }
 
+    private void GetIndexRoomInformationManageUserFalse(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        int row = this.tableBookingInformationManageUserFalse.getSelectedRow();
+    }
+
 
     //Tao bang
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane(); // ko
         tableListManageRoom = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         txtDateCustommerDetail = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         buttonReportCustommerDetail = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
         tableCustommerDetailFalse = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         butonLogOut = new javax.swing.JButton();
@@ -172,7 +208,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBookingInformationManageUserFalse = new javax.swing.JTable();
         lbBookingInformationManageUserFlase = new javax.swing.JLabel();
-        ButtonCheckInManageUserFlase = new javax.swing.JButton();
         lbRoomInformationManageUserFalse = new javax.swing.JLabel();
         lbDateInManagerUserFalse = new javax.swing.JLabel();
         lbRoomNameManagerUserFalse = new javax.swing.JLabel();
@@ -208,9 +243,9 @@ public class ManagerMenu extends javax.swing.JFrame {
         tableListManageRoom.setModel(tableModel1);
         tableListManageRoom.setAutoCreateRowSorter(true);
 
-        managerService.loadDataFromDatabaseForManager(tableModel1);
+        managerService.loadDataFromDatabaseForManager(tableModel1); 
 
-        jScrollPane2.setViewportView(tableListManageRoom);
+        jScrollPane2.setViewportView(tableListManageRoom); // ko
         if (tableListManageRoom.getColumnModel().getColumnCount() > 0) {
             tableListManageRoom.getColumnModel().getColumn(0).setMinWidth(150);
             tableListManageRoom.getColumnModel().getColumn(0).setPreferredWidth(150);
@@ -262,7 +297,7 @@ public class ManagerMenu extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane2)
-                                .addContainerGap())
+                                .addContainerGap()) // ko
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,114 +305,174 @@ public class ManagerMenu extends javax.swing.JFrame {
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))
+                                .addGap(31, 31, 31)) // ko
         );
 
         jTabbedPane1.addTab("Manage room", jPanel1);
 
+
+        // Detail
+        jPanelMain = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txtUsernameCustommerDetail = new javax.swing.JTextField();
+        lbNameDetailFalse = new javax.swing.JLabel();
+        lbCustommerInforDetailFalse = new javax.swing.JLabel();
+        lbMailDetailFalse = new javax.swing.JLabel();
+        lbPhoneDetailFalse = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableRoomInforDetailFalse = new javax.swing.JTable();
+        buttonBillDetailFalse = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        lbSetPhoneDetailFalse = new javax.swing.JLabel();
+        lbSetNameDetailFalse = new javax.swing.JLabel();
+        lbSetMailDetailFalse = new javax.swing.JLabel();
+
+
+        jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelMain.setPreferredSize(new java.awt.Dimension(952, 540));
+        jPanelMain.setLayout(null);
+
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel4.setPreferredSize(new java.awt.Dimension(952, 540));
 
         jLabel8.setBackground(new java.awt.Color(102, 0, 0));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 0, 0));
         jLabel8.setText("Trung tâm chứng từ:");
 
-        txtDateCustommerDetail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsernameCustommerDetail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setText("Nhập tên khách hàng:");
+        lbNameDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbNameDetailFalse.setText("Tên:");
 
         buttonReportCustommerDetail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         buttonReportCustommerDetail.setText("Báo cáo");
 
-        // Thông tin bảng Detail
+        lbCustommerInforDetailFalse.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbCustommerInforDetailFalse.setText("Thông tin khách hàng");
 
-        tableModel2 = new DefaultTableModel(
-                new Object[][]{
+        lbMailDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbMailDetailFalse.setText("Mail:");
 
-                },
-                new String[]{
-                        "Tên khách hàng", "Số điện thoại", "Tên Phòng", "Loại Phòng", "Ngày nhận phòng", "Ngày trả phòng", "Tổng tiền"
-                }
-        ) {
-            boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false
-            };
+        lbPhoneDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbPhoneDetailFalse.setText("SĐT:");
 
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+        tableRoomInforDetailFalse.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                
+            },
+            new String [] {
+                "Tên phòng", "Loại", "Ngày nhận phòng", "Giá phòng"
             }
-        };
-        tableCustommerDetailFalse.setModel(tableModel2);
-        jScrollPane3.setViewportView(tableCustommerDetailFalse);
-        tableCustommerDetailFalse.setVisible(false);
-        if (tableCustommerDetailFalse.getColumnModel().getColumnCount() > 0) {
-            tableCustommerDetailFalse.getColumnModel().getColumn(0).setMinWidth(175);
-            tableCustommerDetailFalse.getColumnModel().getColumn(0).setPreferredWidth(175);
-            tableCustommerDetailFalse.getColumnModel().getColumn(0).setMaxWidth(175);
-            tableCustommerDetailFalse.getColumnModel().getColumn(1).setMinWidth(125);
-            tableCustommerDetailFalse.getColumnModel().getColumn(1).setPreferredWidth(125);
-            tableCustommerDetailFalse.getColumnModel().getColumn(1).setMaxWidth(125);
-            tableCustommerDetailFalse.getColumnModel().getColumn(2).setMinWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(2).setPreferredWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(2).setMaxWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(3).setMinWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(3).setMaxWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(4).setMinWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(4).setPreferredWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(4).setMaxWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(5).setMinWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(5).setMaxWidth(100);
-            tableCustommerDetailFalse.getColumnModel().getColumn(6).setMinWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(6).setPreferredWidth(150);
-            tableCustommerDetailFalse.getColumnModel().getColumn(6).setMaxWidth(150);
-        }
+        ));
+        jScrollPane3.setViewportView(tableRoomInforDetailFalse);
+
+        buttonBillDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        buttonBillDetailFalse.setText("Xuất hóa đơn");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel13.setText("Tên khách hàng:");
+
+        lbSetPhoneDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbSetPhoneDetailFalse.setText(" ");
+
+        lbSetNameDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbSetNameDetailFalse.setText(" ");
+
+        lbSetMailDetailFalse.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbSetMailDetailFalse.setText(" ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(jLabel8)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel9)
-                                                .addGap(21, 21, 21)
-                                                .addComponent(txtDateCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 935, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(11, Short.MAX_VALUE))
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(lbCustommerInforDetailFalse))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbMailDetailFalse)
+                            .addComponent(lbNameDetailFalse)
+                            .addComponent(lbPhoneDetailFalse))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbSetNameDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                            .addComponent(lbSetPhoneDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbSetMailDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(150, 150, 150)
+                    .addComponent(jLabel13)
+                    .addContainerGap(614, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(30, 30, 30)
-                                                .addComponent(jLabel8)
-                                                .addGap(65, 65, 65))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(txtDateCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(36, 36, 36)))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(23, Short.MAX_VALUE))
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(lbCustommerInforDetailFalse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lbNameDetailFalse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbPhoneDetailFalse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbMailDetailFalse))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lbSetNameDetailFalse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbSetPhoneDetailFalse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbSetMailDetailFalse)))
+                        .addGap(82, 82, 82)
+                        .addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(111, 111, 111))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(87, 87, 87)
+                    .addComponent(jLabel13)
+                    .addContainerGap(431, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Custommer detail bill", jPanel4);
+        jPanelMain.add(jPanel4);
+        jPanel4.setBounds(6, -4, 950, 550);
 
-        // Hoàn
+
+        jTabbedPane1.addTab("Custommer detail", jPanelMain);
+        //Deatil - end
+
+        // // Hoàn
         // thêm tab mới ở đây
         panelManageUser.setBackground(new java.awt.Color(204, 255, 255));
         panelManageUser.setPreferredSize(new java.awt.Dimension(952, 540));
@@ -417,7 +512,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         ButtonCheckOutManageUserFlase.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ButtonCheckOutManageUserFlase.setText("Trả phòng");
         panelManageUser.add(ButtonCheckOutManageUserFlase);
-        ButtonCheckOutManageUserFlase.setBounds(550, 130, 127, 29);
+        ButtonCheckOutManageUserFlase.setBounds(410, 130, 127, 29);
 
         ButtonClearManageUserFalse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ButtonClearManageUserFalse.setText("Làm mới");
@@ -426,19 +521,19 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         //Thông tin bảng đặt phòng
         tableBookingInformationManageUserFalse.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-
-                },
-                new String[]{
-                        "STT", "Tên phòng", "Loại phòng", "Trạng thái"
-                }
+            new Object [][] {
+                
+            },
+            new String [] {
+                "STT", "Tên phòng", "Loại phòng", "Trạng thái"
+            }
         ) {
-            boolean[] canEdit = new boolean[]{
-                    false, false, false, false
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tableBookingInformationManageUserFalse);
@@ -464,11 +559,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         lbBookingInformationManageUserFlase.setText("Thông tin đặt phòng");
         panelManageUser.add(lbBookingInformationManageUserFlase);
         lbBookingInformationManageUserFlase.setBounds(90, 220, 200, 32);
-
-        ButtonCheckInManageUserFlase.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ButtonCheckInManageUserFlase.setText("Nhận phòng");
-        panelManageUser.add(ButtonCheckInManageUserFlase);
-        ButtonCheckInManageUserFlase.setBounds(410, 130, 127, 29);
 
         lbRoomInformationManageUserFalse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbRoomInformationManageUserFalse.setText("Thông tin phòng");
@@ -498,7 +588,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         ButtonDateInExpiredManageUserFlase.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ButtonDateInExpiredManageUserFlase.setText("Phòng quá hạn Nhận");
         panelManageUser.add(ButtonDateInExpiredManageUserFlase);
-        ButtonDateInExpiredManageUserFlase.setBounds(690, 130, 180, 29);
+        ButtonDateInExpiredManageUserFlase.setBounds(550, 130, 180, 29);
 
         lbSetDateOutManagerUserFalse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSetDateOutManagerUserFalse.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -520,7 +610,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         panelManageUser.add(lbSetDateInManagerUserFalse);
         lbSetDateInManagerUserFalse.setBounds(670, 380, 190, 30);
 
-        jTabbedPane1.addTab("Manager user", panelManageUser);
+        jTabbedPane1.addTab("Manger user", panelManageUser);
         //Hoàn - end
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 255));
