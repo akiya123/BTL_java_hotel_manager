@@ -179,17 +179,16 @@ public class ManagerMenu extends javax.swing.JFrame {
             return;
         }
 
-        if (sdt.isEmpty()){
+        if (sdt.isEmpty()) {
             JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập số điện thoại!");
             return;
         }
 
         User user = userService.getUserByUserName(username);
-        if (user != null){
+        if (user != null) {
             managerService.checkUserBooking(tableModel3, user.getUsername());
 
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!");
         }
     }
@@ -392,6 +391,8 @@ public class ManagerMenu extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(18, 18, 18).addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(161, 161, 161)).addGroup(jPanel4Layout.createSequentialGroup().addGap(20, 20, 20).addComponent(jLabel8).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addGroup(jPanel4Layout.createSequentialGroup().addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(102, 102, 102).addComponent(lbCustommerInforDetailFalse)).addGroup(jPanel4Layout.createSequentialGroup().addGap(64, 64, 64).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(lbMailDetailFalse).addComponent(lbNameDetailFalse).addComponent(lbPhoneDetailFalse)).addGap(18, 18, 18).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(lbSetNameDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE).addComponent(lbSetPhoneDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(lbSetMailDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))).addGroup(jPanel4Layout.createSequentialGroup().addGap(118, 118, 118).addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(49, 49, 49)).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(150, 150, 150).addComponent(jLabel13).addContainerGap(614, Short.MAX_VALUE))));
         jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(30, 30, 30).addComponent(jLabel8).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(17, 17, 17).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(txtUsernameCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(buttonReportCustommerDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(31, 31, 31).addComponent(lbCustommerInforDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addComponent(lbNameDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(lbPhoneDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lbMailDetailFalse)).addGroup(jPanel4Layout.createSequentialGroup().addComponent(lbSetNameDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(lbSetPhoneDetailFalse).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lbSetMailDetailFalse))).addGap(82, 82, 82).addComponent(buttonBillDetailFalse, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup().addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))).addGap(111, 111, 111)).addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel4Layout.createSequentialGroup().addGap(87, 87, 87).addComponent(jLabel13).addContainerGap(431, Short.MAX_VALUE))));
 
+        jPanelMain.add(jPanel4);
+        jPanel4.setBounds(6, -4, 950, 550);
 
         jTabbedPane1.addTab("Custommer detail", jPanelMain);
         //Manager User

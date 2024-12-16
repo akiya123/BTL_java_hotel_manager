@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb71a357-9387-4054-bb78-d74435cbbb25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_3_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BTL_JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BTL_JAVA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-j-8.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,44 +20,44 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "khuong1742005"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;khuong1742005&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/akiya123/BTL_java_hotel_manager.git",
-    "accountId": "44b78263-1d03-441b-9ca0-15c94b088d7c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/akiya123/BTL_java_hotel_manager.git&quot;,
+    &quot;accountId&quot;: &quot;44b78263-1d03-441b-9ca0-15c94b088d7c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2qIMaq4ccAhyAiuep0B8YISRb2b" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "masterK",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/boyzs/Desktop/Java/BTL_JAVA/lib/mysql-connector-j-9.1.0.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;masterK&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/boyzs/Desktop/Java/BTL_JAVA/lib/mysql-connector-j-9.1.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
