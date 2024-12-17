@@ -30,7 +30,7 @@ public class ForgotPassScreen extends JFrame {
 
     public ForgotPassScreen() {
         // Tiêu đề chính
-        setTitle("Forget Password");
+        setTitle("Quên mật khẩu");
         setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -48,7 +48,7 @@ public class ForgotPassScreen extends JFrame {
         mainPanel.setLayout(new BorderLayout());
 
         // Tiêu đề
-        JLabel titleLabel = new JLabel("Forgot Password");
+        JLabel titleLabel = new JLabel("Quên mật khẩu");
         titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
         titleLabel.setForeground(Color.BLUE);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER); // Căn giữa
@@ -63,7 +63,7 @@ public class ForgotPassScreen extends JFrame {
 
         // Username
         usernameIcon = new JLabel(new ImageIcon("assets/username_icon.png")); // Icon
-        usernameLabel = new JLabel("Username"); // Label
+        usernameLabel = new JLabel("Tài khoản"); // Label
         usernameLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         usernameField = new JTextField(20); // Text Field
         usernameField.setPreferredSize(new Dimension(180, 30));
@@ -90,7 +90,7 @@ public class ForgotPassScreen extends JFrame {
 
         // Old Password
         newPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        newPasswordLabel = new JLabel("New Password");
+        newPasswordLabel = new JLabel("Mật khẩu mới");
         newPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         newPasswordField = new JPasswordField(20);
         newPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -121,7 +121,7 @@ public class ForgotPassScreen extends JFrame {
 
         // New Password
         confirmPasswordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        confirmPasswordLabel = new JLabel("Confirm Password");
+        confirmPasswordLabel = new JLabel("Xác nhận mật khẩu");
         confirmPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         confirmPasswordField = new JPasswordField(20);
         confirmPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -153,19 +153,19 @@ public class ForgotPassScreen extends JFrame {
         buttonPanel.setOpaque(false); // Đặt trong suốt để hiện thị thằng dưới
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10)); // margin Ngang 20, dọc 10
 
-        findUserButton = new JButton("Find");
+        findUserButton = new JButton("Tìm kiếm");
         findUserButton.setBackground(new Color(0, 204, 204));
         findUserButton.setForeground(Color.WHITE);
         findUserButton.setFont(new Font("Arial", Font.BOLD, 14));
         findUserButton.setFocusPainted(false);
 
-        backButton = new JButton("Back");
+        backButton = new JButton("Trở lại");
         backButton.setBackground(Color.green);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
         backButton.setFocusPainted(false);
 
-        changeButton = new JButton("Change");
+        changeButton = new JButton("Thay đổi");
         changeButton.setBackground(new Color(0, 204, 204));
         changeButton.setForeground(Color.WHITE);
         changeButton.setFont(new Font("Arial", Font.BOLD, 14));
@@ -221,7 +221,7 @@ public class ForgotPassScreen extends JFrame {
             findUserButton.setVisible(false);
 
             curUser = change.findUser(usernameField.getText());
-        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found");
+        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Not Found", "Lỗi", JOptionPane.ERROR_MESSAGE);
     }
 
     private void forgotPasswordEvent(ActionEvent e) {
@@ -229,12 +229,12 @@ public class ForgotPassScreen extends JFrame {
         String newPassword = new String(newPasswordField.getPassword());
 
         if (confirmPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter confirm password.");
+            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter confirm password.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (newPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter new password.");
+            JOptionPane.showMessageDialog(ForgotPassScreen.this, "Please enter new password.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -242,6 +242,6 @@ public class ForgotPassScreen extends JFrame {
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.setVisible(true);
             ForgotPassScreen.this.setVisible(false);
-        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Error");
+        } else JOptionPane.showMessageDialog(ForgotPassScreen.this, "Error", "Lỗi", JOptionPane.ERROR_MESSAGE);
     }
 }

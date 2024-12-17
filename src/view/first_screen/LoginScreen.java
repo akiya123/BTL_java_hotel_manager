@@ -21,7 +21,7 @@ public class LoginScreen extends JFrame {
         loginService = new LoginService();
         userService = new UserService();
         // Tiêu đề chính
-        setTitle("Log In");
+        setTitle("Đăng nhập");
         setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -39,7 +39,7 @@ public class LoginScreen extends JFrame {
         mainPanel.setLayout(new BorderLayout());
 
         // Tiêu đề
-        JLabel titleLabel = new JLabel("Log In");
+        JLabel titleLabel = new JLabel("Đăng nhập");
         titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
         titleLabel.setForeground(Color.BLUE);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER); // Căn giữa
@@ -54,7 +54,7 @@ public class LoginScreen extends JFrame {
 
         // Username
         JLabel usernameIcon = new JLabel(new ImageIcon("assets/username_icon.png")); // Icon
-        JLabel usernameLabel = new JLabel("Username"); // Label
+        JLabel usernameLabel = new JLabel("Tên tài khoản"); // Label
         usernameLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         usernameField = new JTextField(20); // Text Field
         usernameField.setPreferredSize(new Dimension(180, 30));
@@ -81,7 +81,7 @@ public class LoginScreen extends JFrame {
 
         // Password
         JLabel passwordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        JLabel passwordLabel = new JLabel("Password");
+        JLabel passwordLabel = new JLabel("Mật khẩu");
         passwordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         passwordField = new JPasswordField(20);
         passwordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -108,7 +108,7 @@ public class LoginScreen extends JFrame {
 
 
         // Forgot password
-        JButton forgotPasswordButton = new JButton("Forgot password?");
+        JButton forgotPasswordButton = new JButton("Quên mật khẩu?");
         forgotPasswordButton.setFont(new Font("Arial", Font.ITALIC, 12));
         forgotPasswordButton.setBorderPainted(false);
         forgotPasswordButton.setContentAreaFilled(false);
@@ -127,13 +127,13 @@ public class LoginScreen extends JFrame {
         buttonPanel.setOpaque(false); // Đặt trong suốt để hiện thị thằng dưới
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10)); // margin Ngang 20, dọc 10
 
-        signUpButton = new JButton("Sign up");
+        signUpButton = new JButton("Đăng kí");
         signUpButton.setBackground(new Color(0, 204, 204));
         signUpButton.setForeground(Color.WHITE);
         signUpButton.setFont(new Font("Arial", Font.BOLD, 14));
         signUpButton.setFocusPainted(false);
 
-        loginButton = new JButton("Log in");
+        loginButton = new JButton("Đăng nhập");
         loginButton.setBackground(Color.GRAY);
         loginButton.setForeground(Color.WHITE);
         loginButton.setFont(new Font("Arial", Font.BOLD, 14));
@@ -176,7 +176,7 @@ public class LoginScreen extends JFrame {
             }
             return;
         } else {
-            JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password.");
+            JOptionPane.showMessageDialog(LoginScreen.this, "Tài khoản hoặc mật khẩu không đúng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 

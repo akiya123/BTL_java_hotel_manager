@@ -52,23 +52,23 @@ public class ChangePassScreen extends javax.swing.JFrame {
         String confirmPassword = txtConfrimPass.getText();
 
         if (oldPassword.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Nhập mật khẩu cũ!");
+            JOptionPane.showMessageDialog(this, "Nhập mật khẩu cũ!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (newPassword.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Nhập mật khẩu mới!");
+            JOptionPane.showMessageDialog(this, "Nhập mật khẩu mới!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (confirmPassword.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu!");
+            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         User curUser = userService.getUserByUserName(username);
         if (changePassService.changePassword(curUser, oldPassword, newPassword, confirmPassword)){
-            JOptionPane.showMessageDialog(this, "Đổi thành công!");
+            JOptionPane.showMessageDialog(this, "Đổi thành công!", "", JOptionPane.INFORMATION_MESSAGE);
             cs.setVisible(true);
             ChangePassScreen.this.setVisible(false);
         }
@@ -101,10 +101,10 @@ public class ChangePassScreen extends javax.swing.JFrame {
         jLabel1.setText("Đổi mật khẩu");
 
         buttonChangepass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonChangepass.setText("Change");
+        buttonChangepass.setText("Đổi");
 
         buttonBackCustommerScreen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonBackCustommerScreen.setText("Back");
+        buttonBackCustommerScreen.setText("Quay lại");
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Mật khẩu hiện tại: ");
 

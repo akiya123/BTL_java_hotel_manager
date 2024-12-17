@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 public class CustommerMenu extends JFrame {
     private UserService userService;
     public String curUserName;
+    private RoomServiceManager roomServiceManager;
     // Biến sử dụng
     // tab Profile
 
@@ -96,14 +97,19 @@ public class CustommerMenu extends JFrame {
         lbNameProfile.setText(curUser.getUsername());
         lbMailProfile.setText(curUser.getEmail());
         lbPhoneProfile.setText(curUser.getPhoneNumber());
+        roomServiceManager.bookedRoom(tableModel2, curUser.getId());
+
     }
 
     //Khởi tạo đầu
     public CustommerMenu() {
         userService = new UserService();
+        roomServiceManager = new RoomServiceManager();
+
         initComponents();
         //Căn giữa màn hình
         setLocationRelativeTo(null);
+
         //Ẩn đặt phòng của tab booking
         bmdpstt_dont_use_this.setVisible(false);
         txtSTTBooking.setVisible(false);
@@ -130,22 +136,22 @@ public class CustommerMenu extends JFrame {
         String type = (String) boxTypeTRoomBooking.getSelectedItem();
 
         if (!username.equals(curUserName)){
-            JOptionPane.showMessageDialog(this, "Tên không trùng khớp!");
+            JOptionPane.showMessageDialog(this, "Tên không trùng khớp!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (username.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nhập tên của bạn!");
+            JOptionPane.showMessageDialog(this, "Nhập tên của bạn!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (sdt.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nhập số điện thoại của bạn!");
+            JOptionPane.showMessageDialog(this, "Nhập số điện thoại của bạn!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (day.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nhập số ngày bạn muốn ở tại phòng!");
+            JOptionPane.showMessageDialog(this, "Nhập số ngày bạn muốn ở tại phòng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -153,6 +159,10 @@ public class CustommerMenu extends JFrame {
         User user = userService.getUserByUserName(username);
         if (user != null) {
 
+            if (!sdt.equals(user.getPhoneNumber())){
+                JOptionPane.showMessageDialog(this, "Số điện thoại không trùng khớp!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             Ban_la_dont_use_this.setVisible(false);
             txtYourName.setVisible(false);
             sdt_dont_use_this.setVisible(false);
@@ -170,11 +180,10 @@ public class CustommerMenu extends JFrame {
             buttonRoomBoking.setVisible(true);
 
             // Hiện dữ liệu lên bảng
-            RoomServiceManager roomServiceManager = new RoomServiceManager();
             roomServiceManager.loadDataFromDatabase(tableModel1, type, day);
 
         } else {
-            JOptionPane.showMessageDialog(this, "Error");
+            JOptionPane.showMessageDialog(this, "Lỗi", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
         return;
@@ -203,18 +212,16 @@ public class CustommerMenu extends JFrame {
                     "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
 
-        RoomServiceManager roomServiceManager = new RoomServiceManager();
         roomServiceManager.bookingRoom(tableModel2, roomName, userId);
         roomServiceManager.loadDataFromDatabase(tableModel1, type, day);
     }
 
     private void cancelBookingEvent(ActionEvent actionEvent) {
-        RoomServiceManager roomServiceManager = new RoomServiceManager();
         String day = txtBookingDate.getText();
         String type = (String) boxTypeTRoomBooking.getSelectedItem();
         String stt = txtSTTCancelbooked.getText();
         if (stt.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Nhập số thứ tự bạn muốn hủy phòng!");
+            JOptionPane.showMessageDialog(this, "Nhập số thứ tự bạn muốn hủy phòng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
         roomServiceManager.cancelBookingRoom(tableModel2 ,stt);
         roomServiceManager.loadDataFromDatabase(tableModel1, type, day);
@@ -324,7 +331,7 @@ public class CustommerMenu extends JFrame {
         Ban_la_dont_use_this.setBounds(17, 78, 54, 34);
 
         buttonFindBooking.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
-        buttonFindBooking.setText("Find");
+        buttonFindBooking.setText("Tìm kiếm");
         jPanel6.add(buttonFindBooking);
         buttonFindBooking.setBounds(80, 270, 107, 36);
 
@@ -360,13 +367,13 @@ public class CustommerMenu extends JFrame {
         jPanel6.add(boxTypeTRoomBooking);
         boxTypeTRoomBooking.setBounds(120, 210, 93, 22);
 
-        buttonRoomBoking.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
-        buttonRoomBoking.setText("Booking");
+        buttonRoomBoking.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        buttonRoomBoking.setText("Đặt phòng");
         jPanel6.add(buttonRoomBoking);
         buttonRoomBoking.setBounds(140, 350, 110, 36);
 
-        buttonBackToFindBoking.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
-        buttonBackToFindBoking.setText("Back");
+        buttonBackToFindBoking.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        buttonBackToFindBoking.setText("Trở lại");
         buttonBackToFindBoking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonBackToFindBokingActionPerformed(evt);
@@ -526,7 +533,7 @@ public class CustommerMenu extends JFrame {
         buttonLogOut.setBackground(new java.awt.Color(0, 0, 0));
         buttonLogOut.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         buttonLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        buttonLogOut.setText("Log out");
+        buttonLogOut.setText("Đăng xuất");
         buttonLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLogOutActionPerformed(evt);
@@ -554,7 +561,7 @@ public class CustommerMenu extends JFrame {
         lbMailProfile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         buttonChangePassProfile.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        buttonChangePassProfile.setText("change password");
+        buttonChangePassProfile.setText("Đổi mật khẩu");
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(

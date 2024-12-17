@@ -141,4 +141,31 @@ public class RoomServiceManager {
             JOptionPane.showMessageDialog(null, "Không tìm thấy hàng có STT: " + Stt, "Thông báo lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public void bookedRoom(DefaultTableModel tableModel, int userId){
+        // Truy vấn SQL để tải dữ liệu
+        String query = "SELECT roomName, roomType, checkOutDate, price FROM room WHERE userId = ?";
+
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, userId);
+            // Thực hiện truy vấn để lấy dữ liệu
+            try (ResultSet rs = pstmt.executeQuery()) {
+                int stt = tableModel.getRowCount() + 1; // Đánh số thứ tự
+                while (rs.next()) {
+                    String roomName = rs.getString("roomName");
+                    String roomType = rs.getString("roomType");
+                    String checkoutDate = rs.getString("checkOutDate");
+                    int price = rs.getInt("price");
+
+                    // Thêm hàng vào TableModel
+                    tableModel.addRow(new Object[]{stt, roomName, roomType, checkoutDate, price});
+                    stt++;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

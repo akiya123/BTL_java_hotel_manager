@@ -5,11 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb71a357-9387-4054-bb78-d74435cbbb25" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/BillScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/services/ManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/services/RoomServiceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/services/RoomServiceManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ManagerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/RoomServiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RoomServiceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/first_screen/ForgotPassScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/first_screen/ForgotPassScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/first_screen/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/first_screen/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/first_screen/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/first_screen/SignUpScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Customer/ChangePassScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Customer/ChangePassScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Customer/CustommerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Customer/CustommerMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +54,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2qIMaq4ccAhyAiuep0B8YISRb2b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,12 +72,17 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;masterK&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/boyzs/Desktop/Java/BTL_JAVA/lib/mysql-connector-j-9.1.0.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/boyzs/Desktop/Java/Java_Private&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\boyzs\Desktop\Java\BTL_JAVA\src\view\second_sreen\Manager" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

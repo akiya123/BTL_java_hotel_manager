@@ -6,14 +6,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static database.UserDAO.connect;
 
-public class ManagerService extends JFrame{
+public class ManagerService extends JFrame {
     UserService userService;
 
 
-    public ManagerService(){
+    public ManagerService() {
         userService = new UserService();
     }
 
@@ -48,7 +50,7 @@ public class ManagerService extends JFrame{
         }
     }
 
-    public void loadDataByUserName(DefaultTableModel tableModel, String userName){
+    public void loadDataByUserName(DefaultTableModel tableModel, String userName) {
         String query = """
                 SELECT r.roomName, r.roomType, r.checkInDate, r.price
                 FROM room r
@@ -70,7 +72,7 @@ public class ManagerService extends JFrame{
                     String price = rs.getString("price");
 
                     // Thêm dữ liệu vào TableModel, bao gồm số thứ tự
-                    tableModel.addRow(new Object[]{ roomName, roomType, checkinDate, price});
+                    tableModel.addRow(new Object[]{roomName, roomType, checkinDate, price});
                 }
             }
 
@@ -80,7 +82,7 @@ public class ManagerService extends JFrame{
         }
     }
 
-    public void checkUserBooking(DefaultTableModel tableModel, String userName){
+    public void checkUserBooking(DefaultTableModel tableModel, String userName) {
         String query = """
                 SELECT r.roomName, r.roomType, r.status
                 FROM room r
@@ -101,7 +103,7 @@ public class ManagerService extends JFrame{
                     String status = rs.getString("status"); // Viết đúng tên cột
 
                     // Thêm dữ liệu vào TableModel, bao gồm số thứ tự
-                    tableModel.addRow(new Object[]{ stt, roomName, roomType, status});
+                    tableModel.addRow(new Object[]{stt, roomName, roomType, status});
                     stt++;
                 }
             }
@@ -112,10 +114,10 @@ public class ManagerService extends JFrame{
         }
     }
 
-    public void fetchUserByStt(DefaultTableModel tableModel, int stt, JLabel name, JLabel type, JLabel checkIn, JLabel checkOut){
-        for (int i = 0; i < tableModel.getRowCount(); i++){
+    public void fetchUserByStt(DefaultTableModel tableModel, int stt, JLabel name, JLabel type, JLabel checkIn, JLabel checkOut) {
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
             int currentSTT = (int) tableModel.getValueAt(i, 0);
-            if (currentSTT == stt){
+            if (currentSTT == stt) {
                 String roomName = (String) tableModel.getValueAt(i, 1);
                 try (Connection conn = connect()) {
                     String query = """
@@ -149,6 +151,57 @@ public class ManagerService extends JFrame{
                     JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        }
+    }
+
+    public void checkOutRoom(String roomName) {
+        // nhận room name ở trong lbSetRoomNameManagerUserFalse
+        // set status, checkin, checkout, userid
+        String query = """
+                    UPDATE room
+                    SET status = 'Available', checkInDate = null, checkOutDate = null, userId = null
+                    WHERE roomName = ?;
+                """;
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, roomName);
+            int check = pstmt.executeUpdate();
+            if (check > 0) {
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void loadDataForBill(DefaultTableModel tableModel, String userName) {
+        String query = """
+                SELECT r.roomName, r.checkInDate, r.price
+                FROM room r
+                LEFT JOIN user u ON r.userId = u.userId 
+                WHERE u.username = ?
+                """;
+        tableModel.setRowCount(0);
+        try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, userName);
+            try (ResultSet rs = pstmt.executeQuery()) {
+
+                while (rs.next()) {
+                    // Lấy dữ liệu từ ResultSet
+                    String roomName = rs.getString("roomName");
+                    String checkinDate = rs.getString("checkInDate");
+                    String price = rs.getString("price");
+
+                    LocalDate currentDate = LocalDate.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    String formattedDate = currentDate.format(formatter);
+
+                    tableModel.addRow(new Object[]{roomName, checkinDate, formattedDate, price});
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Lỗi khi tải dữ liệu hoặc cập nhật từ cơ sở dữ liệu: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

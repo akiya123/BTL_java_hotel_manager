@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class ManagerMenu extends javax.swing.JFrame {
-
+    private BillScreen billScreen;
 
     private javax.swing.JButton buttonBillDetailFalse; // Nút xuất đơn
     private javax.swing.JButton buttonReportCustommerDetail; // Nút tìm Khách
@@ -129,15 +129,17 @@ public class ManagerMenu extends javax.swing.JFrame {
     public ManagerMenu() {
         managerService = new ManagerService();
         userService = new UserService();
+        billScreen = new BillScreen();
         initComponents();
         setLocationRelativeTo(null);
 
         butonLogOut.addActionListener(this::logOutEvent);
         buttonReportCustommerDetail.addActionListener(this::reportEvent);
+        buttonBillDetailFalse.addActionListener(this::getBillEvent);
         buttonFindManageUser.addActionListener(this::findUserEvent);
         ButtonClearManageUserFalse.addActionListener(this::clearEvent);
-//        ButtonCheckOutManageUserFlase.addActionListener(this::checkoutEvent);
-//        ButtonDateInExpiredManageUserFlase.addActionListener(this::dateExpiredEvent);
+        ButtonCheckOutManageUserFlase.addActionListener(this::checkoutEvent);
+        ButtonDateInExpiredManageUserFlase.addActionListener(this::dateExpiredEvent);
         tableBookingInformationManageUserFalse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 GetIndexRoomInformationManageUserFalse(evt);
@@ -148,7 +150,7 @@ public class ManagerMenu extends javax.swing.JFrame {
     private void reportEvent(ActionEvent actionEvent) {
         String userName = txtUsernameCustommerDetail.getText();
         if (userName.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nhập tên khách hàng bạn muốn xem thông tin!");
+            JOptionPane.showMessageDialog(this, "Nhập tên khách hàng bạn muốn xem thông tin!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -160,7 +162,7 @@ public class ManagerMenu extends javax.swing.JFrame {
             managerService.loadDataByUserName(tableModel2, user.getUsername());
         } else {
             // Quán triệt hơn nên chỉ tìm role User, sửa cả find bên Customer
-            JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng có tên như trên!");
+            JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng có tên như trên!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -175,21 +177,25 @@ public class ManagerMenu extends javax.swing.JFrame {
         String sdt = txtCustommerPhoneManageUser.getText();
 
         if (username.isEmpty()) {
-            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập tên!");
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập tên!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (sdt.isEmpty()) {
-            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập số điện thoại!");
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Xin hãy nhập số điện thoại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         User user = userService.getUserByUserName(username);
         if (user != null) {
+            if (!sdt.equals(user.getPhoneNumber())){
+                JOptionPane.showMessageDialog(this, "Số điện thoại không trùng khớp!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             managerService.checkUserBooking(tableModel3, user.getUsername());
 
         } else {
-            JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!");
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -200,11 +206,72 @@ public class ManagerMenu extends javax.swing.JFrame {
     }
 
     private void GetIndexRoomInformationManageUserFalse(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
         int row = this.tableBookingInformationManageUserFalse.getSelectedRow() + 1;
         managerService.fetchUserByStt(tableModel3, row, lbSetRoomNameManagerUserFalse, lbSetRoomTypeManagerUserFalse, lbSetDateInManagerUserFalse, lbSetDateOutManagerUserFalse);
     }
 
+    private void dateExpiredEvent(ActionEvent actionEvent) {
+        // xử lý thêm
+        String roomName = lbSetRoomNameManagerUserFalse.getText();
+        managerService.checkOutRoom(roomName);
+        String username = txtCustommerNameManageUser.getText();
+        String sdt = txtCustommerPhoneManageUser.getText();
+        User user = userService.getUserByUserName(username);
+        if (user != null) {
+            if (!sdt.equals(user.getPhoneNumber())){
+                JOptionPane.showMessageDialog(this, "Số điện thoại không trùng khớp!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (roomName.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Chọn phòng trả!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            managerService.checkUserBooking(tableModel3, user.getUsername());
+            lbSetRoomNameManagerUserFalse.setText("");
+            lbSetRoomTypeManagerUserFalse.setText("");
+            lbSetDateInManagerUserFalse.setText("");
+            lbSetDateOutManagerUserFalse.setText("");
+        } else {
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void checkoutEvent(ActionEvent actionEvent) {
+        // xử lý thêm
+        String roomName = lbSetRoomNameManagerUserFalse.getText();
+        managerService.checkOutRoom(roomName);
+        String username = txtCustommerNameManageUser.getText();
+        String sdt = txtCustommerPhoneManageUser.getText();
+        User user = userService.getUserByUserName(username);
+        if (user != null) {
+            if (!sdt.equals(user.getPhoneNumber())){
+                JOptionPane.showMessageDialog(this, "Số điện thoại không trùng khớp!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (roomName.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Chọn phòng trả!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            managerService.checkUserBooking(tableModel3, user.getUsername());
+            lbSetRoomNameManagerUserFalse.setText("");
+            lbSetRoomTypeManagerUserFalse.setText("");
+            lbSetDateInManagerUserFalse.setText("");
+            lbSetDateOutManagerUserFalse.setText("");
+        } else {
+            JOptionPane.showMessageDialog(ManagerMenu.this, "Không tìm thấy người dùng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void getBillEvent(ActionEvent actionEvent) {
+        String name = lbSetNameDetailFalse.getText();
+        if (name.isEmpty() || name.equals(" ")){
+            JOptionPane.showMessageDialog(this, "Không có dữ liệu người dùng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        billScreen.setProfile(lbSetNameDetailFalse.getText(), lbSetPhoneDetailFalse.getText(), lbSetMailDetailFalse.getText());
+        billScreen.setVisible(true);
+        this.setVisible(false);
+    }
     //Tao bang
     private void initComponents() {
 
@@ -293,7 +360,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         // jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("assets/icon/icon_list.png"))); // NOI18N
-        jLabel2.setText("List room");
+        jLabel2.setText("Danh sách các phòng");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -540,20 +607,20 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         butonLogOut.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         //     butonLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hotel_manager/Custommer_interface/Icon/log_out_icon.png"))); // NOI18N
-        butonLogOut.setText("Log Out");
+        butonLogOut.setText("Đăng xuất");
 
         jLabel10.setBackground(new java.awt.Color(255, 0, 0));
         jLabel10.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         // jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hotel_manager/Custommer_interface/Icon/key_log_out.png"))); // NOI18N
-        jLabel10.setText("Log Out");
+        jLabel10.setText("Đăng xuất");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel5Layout.createSequentialGroup().addContainerGap(381, Short.MAX_VALUE).addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup().addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(377, 377, 377)).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup().addComponent(jLabel10).addGap(369, 369, 369)))));
         jPanel5Layout.setVerticalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel5Layout.createSequentialGroup().addGap(26, 26, 26).addComponent(jLabel10).addGap(155, 155, 155).addComponent(butonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(255, Short.MAX_VALUE)));
 
-        jTabbedPane1.addTab("Log Out", jPanel5);
+        jTabbedPane1.addTab("Đăng xuất", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

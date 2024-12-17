@@ -27,7 +27,7 @@ public class SignUpScreen extends JFrame {
     public SignUpScreen() {
         signUpService = new RegisterService();
         // Tiêu đề chính
-        setTitle("Sign Up");
+        setTitle("Đăng kí");
         setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -45,7 +45,7 @@ public class SignUpScreen extends JFrame {
         mainPanel.setLayout(new BorderLayout());
 
         // Tiêu đề
-        JLabel titleLabel = new JLabel("Sign up");
+        JLabel titleLabel = new JLabel("Đăng kí");
         titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
         titleLabel.setForeground(Color.BLUE);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER); // Căn giữa
@@ -60,7 +60,7 @@ public class SignUpScreen extends JFrame {
 
         // Username
         usernameIcon = new JLabel(new ImageIcon("assets/username_icon.png")); // Icon
-        usernameLabel = new JLabel("Username"); // Label
+        usernameLabel = new JLabel("Tên tài khoản"); // Label
         usernameLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         usernameField = new JTextField(20); // Text Field
         usernameField.setPreferredSize(new Dimension(180, 30));
@@ -88,7 +88,7 @@ public class SignUpScreen extends JFrame {
 
         // Password
         passwordIcon = new JLabel(new ImageIcon("assets/password_icon.png")); // Icon
-        passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Mật khẩu");
         passwordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         passwordField = new JPasswordField(20);
         passwordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -115,7 +115,7 @@ public class SignUpScreen extends JFrame {
 
 
         // Confirm password
-        confirmPasswordLabel = new JLabel("Confirm password");
+        confirmPasswordLabel = new JLabel("Xác nhận mật khẩu");
         confirmPasswordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         confirmPasswordField = new JPasswordField(20);
         confirmPasswordField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -153,7 +153,7 @@ public class SignUpScreen extends JFrame {
         formPanel.add(emailField, gbc);
 
         // Phone number
-        phoneNumberLable = new JLabel("Phone Number");
+        phoneNumberLable = new JLabel("Số điện thoại");
         phoneNumberLable.setFont(new Font("Arial", Font.PLAIN, 14));
         phoneNumberField = new JTextField(20);
         phoneNumberField.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -177,13 +177,13 @@ public class SignUpScreen extends JFrame {
         buttonPanel.setOpaque(false); // Đặt trong suốt để hiện thị thằng dưới
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10)); // margin Ngang 20, dọc 10
 
-        signUpButton = new JButton("Register");
+        signUpButton = new JButton("Đăng kí");
         signUpButton.setBackground(new Color(0, 204, 204));
         signUpButton.setForeground(Color.WHITE);
         signUpButton.setFont(new Font("Arial", Font.BOLD, 14));
         signUpButton.setFocusPainted(false);
 
-        backButton = new JButton("Back");
+        backButton = new JButton("Trở lại");
         backButton.setBackground(Color.green);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
@@ -212,46 +212,46 @@ public class SignUpScreen extends JFrame {
         String phoneNumber = phoneNumberField.getText();
 
         if (username.isEmpty()) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập tên tài khoản!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập tên tài khoản!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (password.isEmpty()) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập mật khẩu!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (confirmPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập xác nhận mật khẩu!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập xác nhận mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (email.isEmpty()) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập email!.");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập email!.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (phoneNumber.isEmpty()) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập số điện thoại!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Xin nhập số điện thoại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         // Kiểm tra nếu mật khẩu và xác nhận mật khẩu khớp
         if (!password.equals(confirmPassword)) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Mật khẩu không trùng khớp");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Mật khẩu không trùng khớp", "Lỗi", JOptionPane.ERROR_MESSAGE);
 
             return;
         }
 
         // Nếu đăng ký thành công
         if (RegisterService.addUser(username, password, email, phoneNumber)) {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Đăng kí thành công!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Đăng kí thành công!", "Lỗi", JOptionPane.INFORMATION_MESSAGE);
             // Quay lại trang đăng nhập
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.setVisible(true);
             SignUpScreen.this.setVisible(false);  // Ẩn màn hình đăng ký
         } else {
-            JOptionPane.showMessageDialog(SignUpScreen.this, "Đăng kí thất bại!");
+            JOptionPane.showMessageDialog(SignUpScreen.this, "Đăng kí thất bại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }
 
