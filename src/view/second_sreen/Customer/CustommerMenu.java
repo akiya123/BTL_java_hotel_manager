@@ -435,7 +435,7 @@ public class CustommerMenu extends JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Booking", jPanel2);
+        jTabbedPane1.addTab("Đặt phòng", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(51, 255, 255));
         jPanel3.setForeground(new java.awt.Color(51, 255, 255));
@@ -518,7 +518,7 @@ public class CustommerMenu extends JFrame {
                                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Booked", jPanel3);
+        jTabbedPane1.addTab("Phòng đã đặt", jPanel3);
 
         jPanel5.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -607,7 +607,7 @@ public class CustommerMenu extends JFrame {
                                 .addGap(20, 20, 20))
         );
 
-        jTabbedPane1.addTab("Profile", jPanel5);
+        jTabbedPane1.addTab("Thông tin cá nhân", jPanel5);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
