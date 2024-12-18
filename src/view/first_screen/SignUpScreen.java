@@ -24,8 +24,10 @@ public class SignUpScreen extends JFrame {
     private JButton backButton;
     private RegisterService signUpService;
 
+
     public SignUpScreen() {
-        signUpService = new RegisterService();
+
+        signUpService = new RegisterService(); 
         // Tiêu đề chính
         setTitle("Đăng kí");
         setSize(400, 600);
@@ -181,12 +183,14 @@ public class SignUpScreen extends JFrame {
         signUpButton.setBackground(new Color(0, 204, 204));
         signUpButton.setForeground(Color.WHITE);
         signUpButton.setFont(new Font("Arial", Font.BOLD, 14));
+        signUpButton.setSize(100, 50);
         signUpButton.setFocusPainted(false);
 
         backButton = new JButton("Trở lại");
         backButton.setBackground(Color.green);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
+        backButton.setSize(100, 50);
         backButton.setFocusPainted(false);
 
         buttonPanel.add(signUpButton);

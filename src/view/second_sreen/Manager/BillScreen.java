@@ -116,12 +116,12 @@ public class BillScreen extends javax.swing.JFrame {
         lbCustommerPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbCustommerPhone.setText("SĐT:");
         jPanel2.add(lbCustommerPhone);
-        lbCustommerPhone.setBounds(30, 150, 27, 20);
+        lbCustommerPhone.setBounds(30, 150, 35, 20);
 
         lbCustommerMail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbCustommerMail.setText("Mail:");
         jPanel2.add(lbCustommerMail);
-        lbCustommerMail.setBounds(30, 180, 29, 20);
+        lbCustommerMail.setBounds(30, 180, 35, 20);
 
         lbSetBillID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSetBillID.setText("INV001121");
@@ -158,7 +158,7 @@ public class BillScreen extends javax.swing.JFrame {
         lbText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbText.setText("Thông tin chi tiết:");
         jPanel2.add(lbText);
-        lbText.setBounds(40, 250, 107, 20);
+        lbText.setBounds(40, 250, 120, 20);
 
         lbPayment.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbPayment.setText("Phương thức thanh toán:");

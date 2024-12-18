@@ -323,12 +323,12 @@ public class CustommerMenu extends JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Room");
         jPanel6.add(jLabel1);
-        jLabel1.setBounds(86, 11, 102, 61);
+        jLabel1.setBounds(86, 11, 120, 61);
 
         Ban_la_dont_use_this.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Ban_la_dont_use_this.setText("Bạn là :");
+        Ban_la_dont_use_this.setText("Bạn là:");
         jPanel6.add(Ban_la_dont_use_this);
-        Ban_la_dont_use_this.setBounds(17, 78, 54, 34);
+        Ban_la_dont_use_this.setBounds(17, 78, 60, 34);
 
         buttonFindBooking.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
         buttonFindBooking.setText("Tìm kiếm");
@@ -344,7 +344,7 @@ public class CustommerMenu extends JFrame {
         sdt_dont_use_this.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         sdt_dont_use_this.setText("SĐT:");
         jPanel6.add(sdt_dont_use_this);
-        sdt_dont_use_this.setBounds(35, 124, 34, 22);
+        sdt_dont_use_this.setBounds(35, 124, 60, 22);
 
         dateRoom_dont_use_this.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         dateRoom_dont_use_this.setText("Số ngày đặt phòng:");

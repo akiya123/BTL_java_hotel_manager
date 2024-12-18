@@ -163,12 +163,14 @@ public class ForgotPassScreen extends JFrame {
         backButton.setBackground(Color.green);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
+        backButton.setSize(100, 50);
         backButton.setFocusPainted(false);
 
         changeButton = new JButton("Thay đổi");
         changeButton.setBackground(new Color(0, 204, 204));
         changeButton.setForeground(Color.WHITE);
         changeButton.setFont(new Font("Arial", Font.BOLD, 14));
+        changeButton.setSize(100, 50);
         changeButton.setFocusPainted(false);
 
         buttonPanel.add(findUserButton);
