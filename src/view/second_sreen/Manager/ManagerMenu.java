@@ -202,6 +202,11 @@ public class ManagerMenu extends javax.swing.JFrame {
     private void clearEvent(ActionEvent actionEvent) {
         txtCustommerNameManageUser.setText("");
         txtCustommerPhoneManageUser.setText("");
+        tableModel3.setRowCount(0);
+        lbSetRoomNameManagerUserFalse.setText("");
+        lbSetRoomTypeManagerUserFalse.setText("");
+        lbSetDateInManagerUserFalse.setText("");
+        lbSetDateOutManagerUserFalse.setText("");
         // Set false
     }
 
@@ -359,12 +364,20 @@ public class ManagerMenu extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        // jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("assets/icon/icon_list.png"))); // NOI18N
+         jLabel2.setIcon(new javax.swing.ImageIcon(("assets/keyImage.png"))); // NOI18N
         jLabel2.setText("Danh sách các phòng");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup().addContainerGap(368, Short.MAX_VALUE).addComponent(jLabel2).addGap(400, 400, 400)));
+        jPanel7Layout.setHorizontalGroup(
+                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addContainerGap(250, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addContainerGap(250, Short.MAX_VALUE)
+                        )
+        );
+
         jPanel7Layout.setVerticalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(jPanel7Layout.createSequentialGroup().addGap(16, 16, 16).addComponent(jLabel2).addContainerGap(16, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -600,7 +613,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         panelManageUser.add(lbSetDateInManagerUserFalse);
         lbSetDateInManagerUserFalse.setBounds(670, 380, 190, 30);
 
-        jTabbedPane1.addTab("Quản lý ngưởi dùng", panelManageUser);
+        jTabbedPane1.addTab("Quản lý người dùng", panelManageUser);
 
         // thêm tab detail
         jTabbedPane1.addTab("Chí tiết hóa đơn", jPanelMain);

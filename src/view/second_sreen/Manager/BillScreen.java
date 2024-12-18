@@ -2,6 +2,7 @@ package view.second_sreen.Manager;
 
 import services.ManagerService;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,9 @@ import java.time.format.DateTimeFormatter;
 
 public class BillScreen extends javax.swing.JFrame {
     private DefaultTableModel tableModel1;
+
+    JPanel panelQR = new JPanel();
+    JLabel qr = new JLabel();
 
     public BillScreen() {
         initComponents();
@@ -63,6 +67,10 @@ public class BillScreen extends javax.swing.JFrame {
             return;
         }
         panelQR.setVisible(true);
+        qr = new JLabel(new ImageIcon("assets/password_icon.png"));
+        panelQR.add(qr);
+
+
         lbText.setVisible(false);
         lbPayment.setVisible(false);
         lbSetTotal.setVisible(false);
@@ -98,6 +106,8 @@ public class BillScreen extends javax.swing.JFrame {
         lbTotal = new javax.swing.JLabel();
         panelQR = new javax.swing.JPanel();
 
+        panelQR.add(qr);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -111,7 +121,7 @@ public class BillScreen extends javax.swing.JFrame {
         lbHotelName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbHotelName.setText("Khách sạn HAUI");
         jPanel2.add(lbHotelName);
-        lbHotelName.setBounds(30, 60, 99, 20);
+        lbHotelName.setBounds(30, 60, 110, 20);
 
         lbCustommerPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbCustommerPhone.setText("SĐT:");
@@ -126,7 +136,7 @@ public class BillScreen extends javax.swing.JFrame {
         lbSetBillID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbSetBillID.setText("INV001121");
         jPanel2.add(lbSetBillID);
-        lbSetBillID.setBounds(140, 90, 100, 20);
+        lbSetBillID.setBounds(170, 90, 100, 20);
 
         tableModel1 = new DefaultTableModel(new Object[][]{}, new String[]{"Tên phòng", "Ngày nhận", "Ngày trả", "Giá"}) {
             boolean[] canEdit = new boolean[]{false, false, false, false};
@@ -148,12 +158,12 @@ public class BillScreen extends javax.swing.JFrame {
         lbCustommerName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbCustommerName.setText("Tên khách hàng:");
         jPanel2.add(lbCustommerName);
-        lbCustommerName.setBounds(30, 120, 100, 20);
+        lbCustommerName.setBounds(30, 120, 120, 20);
 
         lbDateBill.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDateBill.setText("Ngày lập hóa đơn:");
         jPanel2.add(lbDateBill);
-        lbDateBill.setBounds(30, 210, 112, 20);
+        lbDateBill.setBounds(30, 210, 120, 20);
 
         lbText.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbText.setText("Thông tin chi tiết:");
@@ -274,6 +284,5 @@ public class BillScreen extends javax.swing.JFrame {
     private javax.swing.JLabel lbText;
     private javax.swing.JLabel lbTitleBill;
     private javax.swing.JLabel lbTotal;
-    private javax.swing.JPanel panelQR;
     private javax.swing.JTable tableRoomInfor;
 }

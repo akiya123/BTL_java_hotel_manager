@@ -330,10 +330,10 @@ public class CustommerMenu extends JFrame {
         jPanel6.add(Ban_la_dont_use_this);
         Ban_la_dont_use_this.setBounds(17, 78, 60, 34);
 
-        buttonFindBooking.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
+        buttonFindBooking.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         buttonFindBooking.setText("Tìm kiếm");
         jPanel6.add(buttonFindBooking);
-        buttonFindBooking.setBounds(80, 270, 107, 36);
+        buttonFindBooking.setBounds(80, 270, 130, 36);
 
         txtSTTBooking.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel6.add(txtSTTBooking);
@@ -349,7 +349,7 @@ public class CustommerMenu extends JFrame {
         dateRoom_dont_use_this.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         dateRoom_dont_use_this.setText("Số ngày đặt phòng:");
         jPanel6.add(dateRoom_dont_use_this);
-        dateRoom_dont_use_this.setBounds(17, 165, 142, 22);
+        dateRoom_dont_use_this.setBounds(17, 165, 152, 22);
         jPanel6.add(txtBookingDate);
         txtBookingDate.setBounds(175, 166, 64, 22);
 
@@ -367,10 +367,10 @@ public class CustommerMenu extends JFrame {
         jPanel6.add(boxTypeTRoomBooking);
         boxTypeTRoomBooking.setBounds(120, 210, 93, 22);
 
-        buttonRoomBoking.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        buttonRoomBoking.setFont(new java.awt.Font("Segoe UI Black", 0, 17)); // NOI18N
         buttonRoomBoking.setText("Đặt phòng");
         jPanel6.add(buttonRoomBoking);
-        buttonRoomBoking.setBounds(140, 350, 110, 36);
+        buttonRoomBoking.setBounds(140, 350, 130, 36);
 
         buttonBackToFindBoking.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         buttonBackToFindBoking.setText("Trở lại");
@@ -385,7 +385,7 @@ public class CustommerMenu extends JFrame {
         roomTye_dont_use_this.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         roomTye_dont_use_this.setText("Loại phòng:");
         jPanel6.add(roomTye_dont_use_this);
-        roomTye_dont_use_this.setBounds(25, 206, 86, 22);
+        roomTye_dont_use_this.setBounds(25, 206, 100, 22);
         jPanel6.add(txtYourName);
         txtYourName.setBounds(73, 85, 170, 22);
 

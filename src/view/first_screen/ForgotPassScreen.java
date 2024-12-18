@@ -156,20 +156,21 @@ public class ForgotPassScreen extends JFrame {
         findUserButton = new JButton("Tìm kiếm");
         findUserButton.setBackground(new Color(0, 204, 204));
         findUserButton.setForeground(Color.WHITE);
-        findUserButton.setFont(new Font("Arial", Font.BOLD, 14));
+        findUserButton.setFont(new Font("Arial", Font.BOLD, 13));
+        findUserButton.setSize(450, 50);
         findUserButton.setFocusPainted(false);
 
         backButton = new JButton("Trở lại");
         backButton.setBackground(Color.green);
         backButton.setForeground(Color.WHITE);
-        backButton.setFont(new Font("Arial", Font.BOLD, 14));
-        backButton.setSize(100, 50);
+        backButton.setFont(new Font("Arial", Font.BOLD, 13));
+        backButton.setSize(450, 50);
         backButton.setFocusPainted(false);
 
         changeButton = new JButton("Thay đổi");
         changeButton.setBackground(new Color(0, 204, 204));
         changeButton.setForeground(Color.WHITE);
-        changeButton.setFont(new Font("Arial", Font.BOLD, 14));
+        changeButton.setFont(new Font("Arial", Font.BOLD, 13));
         changeButton.setSize(100, 50);
         changeButton.setFocusPainted(false);
 

@@ -182,7 +182,7 @@ public class SignUpScreen extends JFrame {
         signUpButton = new JButton("Đăng kí");
         signUpButton.setBackground(new Color(0, 204, 204));
         signUpButton.setForeground(Color.WHITE);
-        signUpButton.setFont(new Font("Arial", Font.BOLD, 14));
+        signUpButton.setFont(new Font("Arial", Font.BOLD, 13));
         signUpButton.setSize(100, 50);
         signUpButton.setFocusPainted(false);
 
