@@ -12,8 +12,19 @@ import java.time.format.DateTimeFormatter;
 public class BillScreen extends javax.swing.JFrame {
     private DefaultTableModel tableModel1;
 
-    JPanel panelQR = new JPanel();
-    JLabel qr = new JLabel();
+    JPanel panelQR = new JPanel() {
+        private Image backgroundImage = new ImageIcon("assets/qr.png").getImage();
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            // Vẽ hình nền
+            if (backgroundImage != null) {
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        }
+    };
+
 
     public BillScreen() {
         initComponents();
@@ -67,9 +78,6 @@ public class BillScreen extends javax.swing.JFrame {
             return;
         }
         panelQR.setVisible(true);
-        qr = new JLabel(new ImageIcon("assets/password_icon.png"));
-        panelQR.add(qr);
-
 
         lbText.setVisible(false);
         lbPayment.setVisible(false);
@@ -104,9 +112,6 @@ public class BillScreen extends javax.swing.JFrame {
         lbSetDateBill = new javax.swing.JLabel();
         lbSetTotal = new javax.swing.JLabel();
         lbTotal = new javax.swing.JLabel();
-        panelQR = new javax.swing.JPanel();
-
-        panelQR.add(qr);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

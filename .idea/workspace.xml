@@ -6,18 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fb71a357-9387-4054-bb78-d74435cbbb25" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/ForgotPassScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/ForgotPassScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/SignUpScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/SignUpScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/SignUpScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/first_screen/SignUpScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/ChangePassScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/ChangePassScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Customer/CustommerMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/BillScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/BillScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BTL_JAVA/view/second_sreen/Manager/ManagerMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/first_screen/ForgotPassScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/first_screen/ForgotPassScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/first_screen/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/first_screen/SignUpScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Customer/CustommerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Customer/CustommerMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Manager/BillScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/BillScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/second_sreen/Manager/ManagerMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
